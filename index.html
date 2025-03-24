@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cam Mate - Intelligent AI Camera Assistant</title>
-    <meta name="description" content="Cam Mate offers an intelligent, plug-and-play AI camera assistant that enhances your existing security camera system.">
+    <title>Cam Mate - Your Intelligent AI Camera Assistant</title>
+    <meta name="description" content="Cam Mate offers an intelligent, plug-and-play AI camera assistant that enhances your existing security camera system with local AI processing.">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="assets/fonts/fonts.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
@@ -19,6 +19,7 @@
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#features" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Features</a>
                     <a href="#how-it-works" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">How it Works</a>
+                    <a href="#use-cases" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Use Cases</a>
                     <a href="#contact" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">Contact Us</a>
                 </div>
             </div>
@@ -29,20 +30,62 @@
         <!-- Hero Section -->
         <section class="pt-32 pb-20 bg-gradient-to-b from-blue-50 to-white dark:from-gray-800 dark:to-gray-900">
             <div class="container mx-auto px-6">
-                <div class="text-center">
-                    <h1 class="text-5xl font-bold text-gray-900 dark:text-white mb-6">
-                        AI Camera Assistant for Your Home
-                    </h1>
-                    <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-                        Enhance your existing security camera system with intelligent AI detection, smart summaries, and instant notifications—all without cloud storage or subscriptions.
-                    </p>
-                    <div class="flex justify-center gap-4">
-                        <a href="#contact" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition">
-                            Get Started
-                        </a>
-                        <a href="#features" class="bg-gray-200 text-gray-800 px-8 py-3 rounded-lg hover:bg-gray-300 transition dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600">
-                            Learn More
-                        </a>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h1 class="text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                            Your Intelligent AI Camera Assistant
+                        </h1>
+                        <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
+                            Local AI processing, no cloud storage, no subscriptions. Melbourne-based security made simple.
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="#contact" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition">
+                                Request a Demo
+                            </a>
+                            <a href="#features" class="bg-gray-200 text-gray-800 px-8 py-3 rounded-lg hover:bg-gray-300 transition dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600">
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <img src="assets/images/hero-camera.jpg" alt="Cam Mate Device" class="rounded-lg shadow-xl">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="py-20 bg-gray-50 dark:bg-gray-800">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-16">How It Works</h2>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Simple Setup, Powerful Results</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <span class="bg-blue-100 dark:bg-blue-900 rounded-full p-2 mr-4">1</span>
+                                <p class="text-gray-600 dark:text-gray-300">Connect Cam Mate to your network</p>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-blue-100 dark:bg-blue-900 rounded-full p-2 mr-4">2</span>
+                                <p class="text-gray-600 dark:text-gray-300">Add your existing IP cameras</p>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-blue-100 dark:bg-blue-900 rounded-full p-2 mr-4">3</span>
+                                <p class="text-gray-600 dark:text-gray-300">Start receiving smart notifications</p>
+                            </li>
+                        </ul>
+                        <div class="mt-8">
+                            <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Supported Camera Brands</h4>
+                            <div class="flex flex-wrap gap-4">
+                                <span class="px-4 py-2 bg-white dark:bg-gray-700 rounded-lg shadow">Hikvision</span>
+                                <span class="px-4 py-2 bg-white dark:bg-gray-700 rounded-lg shadow">Tapo</span>
+                                <span class="px-4 py-2 bg-white dark:bg-gray-700 rounded-lg shadow">RTSP</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <img src="assets/images/setup-diagram.jpg" alt="Cam Mate Setup Diagram" class="rounded-lg">
                     </div>
                 </div>
             </div>
@@ -85,37 +128,61 @@
             </div>
         </section>
 
-        <!-- How It Works Section -->
-        <section id="how-it-works" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <!-- Use Cases Section -->
+        <section id="use-cases" class="py-20 bg-gray-50 dark:bg-gray-800">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-16">How It Works</h2>
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Simple Setup, Powerful Results</h3>
-                        <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <span class="bg-blue-100 dark:bg-blue-900 rounded-full p-2 mr-4">1</span>
-                                <p class="text-gray-600 dark:text-gray-300">Connect Cam Mate to your network</p>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="bg-blue-100 dark:bg-blue-900 rounded-full p-2 mr-4">2</span>
-                                <p class="text-gray-600 dark:text-gray-300">Add your existing IP cameras</p>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="bg-blue-100 dark:bg-blue-900 rounded-full p-2 mr-4">3</span>
-                                <p class="text-gray-600 dark:text-gray-300">Start receiving smart notifications</p>
-                            </li>
-                        </ul>
+                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-16">Perfect For</h2>
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <img src="assets/images/homeowner.jpg" alt="Homeowner" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Homeowners</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Keep your home safe with intelligent monitoring and instant alerts</p>
                     </div>
                     <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg">
-                        <img src="assets/card/demo.png" alt="Cam Mate Demo" class="rounded-lg">
+                        <img src="assets/images/pet-owner.jpg" alt="Pet Owner" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Pet Owners</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Monitor your pets while you're away with smart detection</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <img src="assets/images/business.jpg" alt="Small Business" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Small Businesses</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Protect your business with professional-grade security features</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-16">What Our Customers Say</h2>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-lg">
+                        <div class="flex items-center mb-6">
+                            <img src="assets/images/testimonial-1.jpg" alt="Sarah" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">Sarah</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Melbourne</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300">"Cam Mate gave us real-time alerts for deliveries—no monthly fees! The local AI processing is fast and reliable."</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-lg">
+                        <div class="flex items-center mb-6">
+                            <img src="assets/images/testimonial-2.jpg" alt="Michael" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">Michael</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Melbourne</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300">"As a small business owner, Cam Mate's privacy-first approach and local processing give me peace of mind."</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-20">
+        <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-800">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-16">Contact Us</h2>
                 <div class="max-w-lg mx-auto">
