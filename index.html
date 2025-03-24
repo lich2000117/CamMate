@@ -6,7 +6,11 @@
     <title>Cam Mate - Your Intelligent AI Camera Assistant</title>
     <meta name="description" content="Cam Mate offers an intelligent, plug-and-play AI camera assistant that enhances your existing security camera system with local AI processing.">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="assets/fonts/fonts.css" rel="stylesheet">
+    <link href="assets/css/styles.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </head>
 <body class="bg-white dark:bg-gray-900">
@@ -115,35 +119,103 @@
         <!-- Features Section -->
         <section id="features" class="py-20">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-16">Key Features</h2>
+                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-4 relative">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500">Key Features</span>
+                    <div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
+                </h2>
+                <p class="text-lg text-center text-gray-600 dark:text-gray-300 mb-16 max-w-3xl mx-auto">Advanced AI-powered tools that transform your existing security cameras into intelligent monitoring systems.</p>
+                
                 <div class="grid md:grid-cols-3 gap-12">
-                    <div class="text-center fade-in" style="animation-delay: 0.2s;">
-                        <div class="bg-blue-100 dark:bg-blue-900 rounded-full p-6 w-20 h-20 mx-auto mb-6 flex items-center justify-center pulsing">
+                    <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-8 feature-card relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-blue-100 dark:bg-blue-900/30 rounded-bl-3xl"></div>
+                        <div class="bg-blue-100 dark:bg-blue-900 rounded-full p-6 w-20 h-20 mb-6 flex items-center justify-center pulsing relative z-10">
                             <svg class="w-10 h-10 text-blue-600 dark:text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
                             </svg>
                         </div>
                         <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">AI-Powered Detection</h3>
-                        <p class="text-gray-600 dark:text-gray-300">Advanced object and human detection for smarter security monitoring</p>
+                        <p class="text-gray-600 dark:text-gray-300 mb-5">Advanced object and human detection for smarter security monitoring.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-center text-gray-600 dark:text-gray-300">
+                                <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                People detection
+                            </li>
+                            <li class="flex items-center text-gray-600 dark:text-gray-300">
+                                <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                Package detection
+                            </li>
+                            <li class="flex items-center text-gray-600 dark:text-gray-300">
+                                <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                Pet monitoring
+                            </li>
+                        </ul>
                     </div>
-                    <div class="text-center fade-in" style="animation-delay: 0.4s;">
-                        <div class="bg-blue-100 dark:bg-blue-900 rounded-full p-6 w-20 h-20 mx-auto mb-6 flex items-center justify-center pulsing">
+                    <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-8 feature-card relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-blue-100 dark:bg-blue-900/30 rounded-bl-3xl"></div>
+                        <div class="bg-blue-100 dark:bg-blue-900 rounded-full p-6 w-20 h-20 mb-6 flex items-center justify-center pulsing relative z-10">
                             <svg class="w-10 h-10 text-blue-600 dark:text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
                             </svg>
                         </div>
                         <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Instant Notifications</h3>
-                        <p class="text-gray-600 dark:text-gray-300">Get smart summaries delivered directly to your phone</p>
+                        <p class="text-gray-600 dark:text-gray-300 mb-5">Get smart summaries delivered directly to your phone.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-center text-gray-600 dark:text-gray-300">
+                                <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                AI-generated descriptions
+                            </li>
+                            <li class="flex items-center text-gray-600 dark:text-gray-300">
+                                <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                Image snapshots
+                            </li>
+                            <li class="flex items-center text-gray-600 dark:text-gray-300">
+                                <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                Customizable alerts
+                            </li>
+                        </ul>
                     </div>
-                    <div class="text-center fade-in" style="animation-delay: 0.6s;">
-                        <div class="bg-blue-100 dark:bg-blue-900 rounded-full p-6 w-20 h-20 mx-auto mb-6 flex items-center justify-center pulsing">
+                    <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-8 feature-card relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-blue-100 dark:bg-blue-900/30 rounded-bl-3xl"></div>
+                        <div class="bg-blue-100 dark:bg-blue-900 rounded-full p-6 w-20 h-20 mb-6 flex items-center justify-center pulsing relative z-10">
                             <svg class="w-10 h-10 text-blue-600 dark:text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
                             </svg>
                         </div>
                         <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Privacy First</h3>
-                        <p class="text-gray-600 dark:text-gray-300">All processing happens locally on your Cam Mate box</p>
+                        <p class="text-gray-600 dark:text-gray-300 mb-5">All processing happens locally on your Cam Mate box.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-center text-gray-600 dark:text-gray-300">
+                                <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                No cloud storage required
+                            </li>
+                            <li class="flex items-center text-gray-600 dark:text-gray-300">
+                                <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                No monthly subscriptions
+                            </li>
+                            <li class="flex items-center text-gray-600 dark:text-gray-300">
+                                <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                Your data stays private
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -152,92 +224,236 @@
         <!-- How It Works Section -->
         <section id="how-it-works" class="py-20 bg-pattern bg-gray-50 dark:bg-gray-800">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-16">How It Works</h2>
+                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-4 relative">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500">How It Works</span>
+                    <div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
+                </h2>
+                <p class="text-lg text-center text-gray-600 dark:text-gray-300 mb-16 max-w-3xl mx-auto">Connect your existing cameras and start receiving intelligent notifications in minutes.</p>
+                
                 <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg feature-card">
                         <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Simple Setup, Powerful Results</h3>
-                        <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <span class="bg-blue-100 dark:bg-blue-900 rounded-full p-2 mr-4">1</span>
-                                <p class="text-gray-600 dark:text-gray-300">Connect Cam Mate to your network</p>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="bg-blue-100 dark:bg-blue-900 rounded-full p-2 mr-4">2</span>
-                                <p class="text-gray-600 dark:text-gray-300">Add your existing IP cameras</p>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="bg-blue-100 dark:bg-blue-900 rounded-full p-2 mr-4">3</span>
-                                <p class="text-gray-600 dark:text-gray-300">Start receiving smart notifications</p>
-                            </li>
-                        </ul>
-                        <div class="mt-8">
+                        <div class="space-y-8">
+                            <div class="flex">
+                                <div class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 font-bold text-xl mr-4">
+                                    1
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-2">Connect CamMate</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">Simply plug the CamMate box into your network and power it on. No complicated setup required.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex">
+                                <div class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 font-bold text-xl mr-4">
+                                    2
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-2">Add Your Cameras</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">Use our simple mobile app to scan for and add your existing IP cameras. Works with most major brands.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex">
+                                <div class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 font-bold text-xl mr-4">
+                                    3
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-2">Receive Smart Alerts</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">Start receiving AI-generated notifications about relevant events, with no false alarms.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-10">
                             <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Supported Camera Brands</h4>
                             <div class="flex flex-wrap gap-4">
-                                <span class="px-4 py-2 bg-white dark:bg-gray-700 rounded-lg shadow">Hikvision</span>
-                                <span class="px-4 py-2 bg-white dark:bg-gray-700 rounded-lg shadow">Tapo</span>
-                                <span class="px-4 py-2 bg-white dark:bg-gray-700 rounded-lg shadow">RTSP</span>
+                                <span class="px-4 py-2 bg-white dark:bg-gray-600 rounded-lg shadow flex items-center">
+                                    <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    Hikvision
+                                </span>
+                                <span class="px-4 py-2 bg-white dark:bg-gray-600 rounded-lg shadow flex items-center">
+                                    <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    Tapo
+                                </span>
+                                <span class="px-4 py-2 bg-white dark:bg-gray-600 rounded-lg shadow flex items-center">
+                                    <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    RTSP
+                                </span>
+                                <a href="cameras.html" class="px-4 py-2 bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-lg shadow flex items-center hover:bg-blue-100 dark:hover:bg-blue-800 transition-colors">
+                                    <span>View All</span>
+                                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                </a>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg">
-                        <img src="assets/images/setup-diagram.jpg" alt="Cam Mate Setup Diagram" class="rounded-lg">
+                    
+                    <div class="relative">
+                        <div class="absolute -top-10 -right-10 w-32 h-32 bg-blue-400 rounded-full opacity-20 floating"></div>
+                        <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-green-400 rounded-full opacity-20 floating" style="animation-delay: 1.5s;"></div>
+                        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg relative z-10">
+                            <img src="assets/images/setup-diagram.jpg" alt="Cam Mate Setup Diagram" class="rounded-lg phone-screenshot">
+                            <div class="mt-6 bg-blue-50 dark:bg-gray-600 p-4 rounded-lg">
+                                <div class="flex items-start">
+                                    <svg class="w-6 h-6 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                    <p class="text-gray-700 dark:text-gray-300 text-sm">
+                                        CamMate processes all video locally, ensuring your data never leaves your network. No cloud services are required for operation.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Event Timeline Section -->
-        <section class="py-20 bg-gray-50 dark:bg-gray-800">
+        <!-- Language Support Section - Renaming to "Extended Capabilities" -->
+        <section id="extended-capabilities" class="py-20 bg-gray-50 dark:bg-gray-800">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-16">Know What Happened</h2>
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg">
-                        <img src="assets/images/timeline.jpg" alt="Event Timeline" class="rounded-lg mb-6">
-                        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Detailed Event Timeline</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-6">Get a comprehensive view of all events around your property with our intelligent timeline interface.</p>
-                        <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-blue-600 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-white mb-4 fade-in">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500">Extended Capabilities</span>
+                    <div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
+                </h2>
+                <p class="text-xl text-center text-gray-600 dark:text-gray-300 mb-16 fade-in max-w-3xl mx-auto" style="animation-delay: 0.2s;">
+                    Powerful tools for customization and integration
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="fade-in" style="animation-delay: 0.4s;">
+                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
+                            <span class="bg-blue-100 dark:bg-blue-900 rounded-full p-2 mr-4">
+                                <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/>
                                 </svg>
-                                <p class="text-gray-600 dark:text-gray-300">AI-generated summaries of each event</p>
+                            </span>
+                            Multi-Language Interface
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6 text-lg">
+                            Cam Mate supports multiple languages, making it accessible to users worldwide. The interface automatically detects your preferred language and adapts accordingly.
+                        </p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center text-gray-600 dark:text-gray-300">
+                                <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                Automatic language detection
                             </li>
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-blue-600 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            <li class="flex items-center text-gray-600 dark:text-gray-300">
+                                <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                                 </svg>
-                                <p class="text-gray-600 dark:text-gray-300">Chronological event tracking</p>
+                                12+ languages supported
                             </li>
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-blue-600 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            <li class="flex items-center text-gray-600 dark:text-gray-300">
+                                <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                                 </svg>
-                                <p class="text-gray-600 dark:text-gray-300">Easy event search and filtering</p>
+                                Easy language switching
                             </li>
                         </ul>
+                        <img src="assets/images/language-support.jpg" alt="Language Support" class="phone-screenshot w-full h-auto object-cover rounded-xl shadow-lg">
                     </div>
-                    <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg">
-                        <img src="assets/images/intelligent-icons.jpg" alt="Intelligent Icons" class="rounded-lg mb-6">
-                        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Intelligent Icons</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-6">Smart visual indicators that automatically adapt to event types and importance.</p>
+                    <div class="fade-in" style="animation-delay: 0.6s;">
+                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
+                            <span class="bg-blue-100 dark:bg-blue-900 rounded-full p-2 mr-4">
+                                <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+                                </svg>
+                            </span>
+                            Custom Event Integration
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6 text-lg">
+                            Create and customize your own event triggers and responses. Define what constitutes an event and how the system should respond.
+                        </p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center text-gray-600 dark:text-gray-300">
+                                <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                Custom event definitions
+                            </li>
+                            <li class="flex items-center text-gray-600 dark:text-gray-300">
+                                <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                Flexible notification options
+                            </li>
+                            <li class="flex items-center text-gray-600 dark:text-gray-300">
+                                <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                Integration with smart home systems
+                            </li>
+                        </ul>
+                        <img src="assets/images/custom-events.jpg" alt="Custom Events" class="phone-screenshot w-full h-auto object-cover rounded-xl shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Timeline Section - Renaming to Intelligent Event Management -->
+        <section id="event-management" class="py-20 bg-white dark:bg-gray-900">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-white mb-4 fade-in">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500">Intelligent Event Management</span>
+                    <div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
+                </h2>
+                <p class="text-xl text-center text-gray-600 dark:text-gray-300 mb-16 fade-in max-w-3xl mx-auto" style="animation-delay: 0.2s;">
+                    Advanced tools for tracking and organizing security events
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="fade-in order-2 md:order-1" style="animation-delay: 0.4s;">
+                        <img src="assets/images/timeline.jpg" alt="Event Timeline" class="phone-screenshot w-full h-auto object-cover rounded-xl shadow-lg">
+                    </div>
+                    <div class="fade-in order-1 md:order-2" style="animation-delay: 0.6s;">
+                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6">Comprehensive Event Timeline</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6 text-lg">
+                            View all detected events in an intuitive timeline format. Quickly identify when security events occurred and jump directly to the footage.
+                        </p>
                         <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-blue-600 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
-                                </svg>
-                                <p class="text-gray-600 dark:text-gray-300">Context-aware icon selection</p>
+                            <li class="flex">
+                                <div class="flex-shrink-0 w-10 h-10 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Time-stamped Events</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">Every detected event is accurately timestamped for precise reference.</p>
+                                </div>
                             </li>
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-blue-600 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
-                                </svg>
-                                <p class="text-gray-600 dark:text-gray-300">Color-coded importance levels</p>
+                            <li class="flex">
+                                <div class="flex-shrink-0 w-10 h-10 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Smart Filtering</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">Filter events by type, camera, or time range to find exactly what you need.</p>
+                                </div>
                             </li>
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-blue-600 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
-                                </svg>
-                                <p class="text-gray-600 dark:text-gray-300">Customizable visual themes</p>
+                            <li class="flex">
+                                <div class="flex-shrink-0 w-10 h-10 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Daily, Weekly & Monthly Views</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">Switch between different timeline views to analyze patterns and trends.</p>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -245,60 +461,79 @@
             </div>
         </section>
 
-        <!-- Language Support Section -->
-        <section class="py-20">
+        <!-- Our Story Section - New Section -->
+        <section id="our-story" class="py-20 bg-gray-50 dark:bg-gray-800">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-16">Global Language Support</h2>
+                <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-white mb-4 fade-in">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500">Our Story</span>
+                    <div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
+                </h2>
+                <p class="text-xl text-center text-gray-600 dark:text-gray-300 mb-16 fade-in max-w-3xl mx-auto" style="animation-delay: 0.2s;">
+                    How Cam Mate began and where we're headed
+                </p>
+
                 <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg">
-                        <img src="assets/images/language-support.jpg" alt="Language Support" class="rounded-lg mb-6">
-                        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Multi-Language Interface</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-6">Seamlessly switch between multiple languages with our intuitive interface.</p>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="flex items-center space-x-2">
-                                <span class="w-2 h-2 bg-blue-600 rounded-full"></span>
-                                <span class="text-gray-600 dark:text-gray-300">English</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <span class="w-2 h-2 bg-blue-600 rounded-full"></span>
-                                <span class="text-gray-600 dark:text-gray-300">German</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <span class="w-2 h-2 bg-blue-600 rounded-full"></span>
-                                <span class="text-gray-600 dark:text-gray-300">Dutch</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <span class="w-2 h-2 bg-blue-600 rounded-full"></span>
-                                <span class="text-gray-600 dark:text-gray-300">Mandarin</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <span class="w-2 h-2 bg-blue-600 rounded-full"></span>
-                                <span class="text-gray-600 dark:text-gray-300">Spanish</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <span class="w-2 h-2 bg-blue-600 rounded-full"></span>
-                                <span class="text-gray-600 dark:text-gray-300">More coming soon</span>
+                    <div class="fade-in" style="animation-delay: 0.4s;">
+                        <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg enhanced-card">
+                            <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6">Our Mission</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-6 text-lg">
+                                Cam Mate was born from a simple idea: security cameras should be smarter, more accessible, and privacy-focused. 
+                                Our team of security experts and AI specialists came together to create a solution that empowers users with 
+                                intelligent security without compromising on privacy.
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-300 mb-6 text-lg">
+                                Unlike cloud-based solutions that store your data on remote servers, Cam Mate processes everything locally 
+                                on your own devices. This means your private moments stay private, while still benefiting from 
+                                cutting-edge AI detection capabilities.
+                            </p>
+                            <div class="flex items-center mt-8">
+                                <img src="assets/images/founder.jpg" alt="Founder" class="w-16 h-16 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Michael Chen</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">Founder & CEO</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg">
-                        <img src="assets/images/custom-events.jpg" alt="Custom Events" class="rounded-lg mb-6">
-                        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Custom Event Integration</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-6">Extend beyond camera events with custom event support for your entire security system.</p>
-                        <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-blue-600 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
-                                </svg>
-                                <p class="text-gray-600 dark:text-gray-300">Integrate with alarm systems</p>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-blue-600 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
-                                </svg>
-                                <p class="text-gray-600 dark:text-gray-300">Smart home automation triggers</p>
-                            </li>
-                        </ul>
+                    <div class="fade-in" style="animation-delay: 0.6s;">
+                        <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg enhanced-card">
+                            <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6">Our Values</h3>
+                            <ul class="space-y-6">
+                                <li class="flex">
+                                    <div class="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4">
+                                        <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Privacy First</h4>
+                                        <p class="text-gray-600 dark:text-gray-300">We believe your data belongs to you, not on corporate servers. Everything is processed locally.</p>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div class="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4">
+                                        <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Accessibility</h4>
+                                        <p class="text-gray-600 dark:text-gray-300">Security should be accessible to everyone. We support multiple languages and affordable hardware.</p>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div class="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4">
+                                        <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Innovation</h4>
+                                        <p class="text-gray-600 dark:text-gray-300">We're constantly improving our AI detection capabilities to make your security smarter.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -307,7 +542,11 @@
         <!-- Use Cases Section -->
         <section id="use-cases" class="py-20 bg-gray-50 dark:bg-gray-800">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-16">Perfect For</h2>
+                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-4 relative">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500">Perfect For</span>
+                    <div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
+                </h2>
+                <p class="text-lg text-center text-gray-600 dark:text-gray-300 mb-16 max-w-3xl mx-auto">Discover how Cam Mate can enhance security for different users.</p>
                 <div class="grid md:grid-cols-3 gap-12">
                     <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg feature-card">
                         <div class="image-container mb-4">
@@ -334,120 +573,82 @@
             </div>
         </section>
 
-        <!-- Event Details Section -->
-        <section class="py-20 bg-gray-50 dark:bg-gray-800">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-16">Get the Full Picture</h2>
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg">
-                        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Comprehensive Event Details</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-6">Access detailed information about every event with our intuitive interface.</p>
-                        <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-blue-600 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                                </svg>
-                                <p class="text-gray-600 dark:text-gray-300">Event snapshots and recordings</p>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-blue-600 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                </svg>
-                                <p class="text-gray-600 dark:text-gray-300">AI-generated event summaries</p>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-blue-600 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                </svg>
-                                <p class="text-gray-600 dark:text-gray-300">Precise timestamp tracking</p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg">
-                        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">You're in Control</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-6">Your data stays local with intelligent storage management.</p>
-                        <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-blue-600 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                </svg>
-                                <p class="text-gray-600 dark:text-gray-300">Local-only storage option</p>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-blue-600 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                </svg>
-                                <p class="text-gray-600 dark:text-gray-300">Smart event classification</p>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-blue-600 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                </svg>
-                                <p class="text-gray-600 dark:text-gray-300">Flexible retention policies</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Testimonials Section -->
         <section class="py-20">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-16">What Our Customers Say</h2>
+                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-4 relative">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500">What Our Customers Say</span>
+                    <div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
+                </h2>
+                <p class="text-lg text-center text-gray-600 dark:text-gray-300 mb-16 max-w-3xl mx-auto">Real experiences from our satisfied customers.</p>
                 <div class="grid md:grid-cols-2 gap-12">
-                    <div class="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-lg">
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-lg relative feature-card">
+                        <div class="absolute -top-4 -left-4 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold">
+                            "
+                        </div>
                         <div class="flex items-center mb-6">
-                            <img src="assets/images/testimonial-1.jpg" alt="Wesley" class="w-12 h-12 rounded-full mr-4">
+                            <img src="assets/images/testimonial-1.jpg" alt="Wesley" class="w-16 h-16 rounded-full object-cover mr-4 border-4 border-blue-100 dark:border-gray-600">
                             <div>
-                                <h4 class="font-semibold text-gray-900 dark:text-white">Wesley</h4>
+                                <h4 class="font-semibold text-gray-900 dark:text-white text-lg">Wesley</h4>
                                 <p class="text-gray-600 dark:text-gray-300">Melbourne</p>
                             </div>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-300">"Cam Mate gave us real-time alerts for deliveries—no monthly fees! The local AI processing is fast and reliable."</p>
+                        <p class="text-gray-600 dark:text-gray-300 text-lg italic">"Cam Mate gave us real-time alerts for deliveries—no monthly fees! The local AI processing is fast and reliable."</p>
                     </div>
-                    <div class="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-lg">
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-lg relative feature-card">
+                        <div class="absolute -top-4 -left-4 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold">
+                            "
+                        </div>
                         <div class="flex items-center mb-6">
-                            <img src="assets/images/testimonial-2.jpg" alt="Michael" class="w-12 h-12 rounded-full mr-4">
+                            <img src="assets/images/testimonial-2.jpg" alt="Michael" class="w-16 h-16 rounded-full object-cover mr-4 border-4 border-blue-100 dark:border-gray-600">
                             <div>
-                                <h4 class="font-semibold text-gray-900 dark:text-white">Michael</h4>
+                                <h4 class="font-semibold text-gray-900 dark:text-white text-lg">Michael</h4>
                                 <p class="text-gray-600 dark:text-gray-300">Melbourne</p>
                             </div>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-300">"As a small business owner, Cam Mate's privacy-first approach and local processing give me peace of mind."</p>
+                        <p class="text-gray-600 dark:text-gray-300 text-lg italic">"As a small business owner, Cam Mate's privacy-first approach and local processing give me peace of mind."</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-800">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-16">Contact Us</h2>
-                <div class="max-w-lg mx-auto">
-                    <form id="contact-form" class="space-y-6">
-                        <div>
-                            <label for="name" class="block text-gray-700 dark:text-gray-300 mb-2">Name</label>
-                            <input type="text" id="name" name="name" required
-                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-gray-700 dark:text-gray-300 mb-2">Email</label>
-                            <input type="email" id="email" name="email" required
-                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                        </div>
-                        <div>
-                            <label for="message" class="block text-gray-700 dark:text-gray-300 mb-2">Message</label>
-                            <textarea id="message" name="message" rows="4" required
-                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"></textarea>
-                        </div>
-                        <button type="submit"
-                            class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
-                            Send Message
-                        </button>
-                    </form>
+        <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-800 relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white dark:from-gray-900 to-transparent opacity-40"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-4 relative">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500">Get in Touch</span>
+                    <div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
+                </h2>
+                <p class="text-lg text-center text-gray-600 dark:text-gray-300 mb-16 max-w-3xl mx-auto">We're based in Melbourne and ready to help you enhance your security system.</p>
+                <div class="max-w-lg mx-auto bg-white dark:bg-gray-700 rounded-xl shadow-xl overflow-hidden">
+                    <div class="p-8">
+                        <form id="contact-form" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Name</label>
+                                <input type="text" id="name" name="name" required
+                                    class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white transition-all duration-200">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Email</label>
+                                <input type="email" id="email" name="email" required
+                                    class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white transition-all duration-200">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Message</label>
+                                <textarea id="message" name="message" rows="4" required
+                                    class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white transition-all duration-200"></textarea>
+                            </div>
+                            <button type="submit"
+                                class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-200 transform hover:-translate-y-1 hover:shadow-lg">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
+            <div class="absolute bottom-0 right-0 w-64 h-64 bg-blue-200 dark:bg-blue-900 rounded-full opacity-20 -mb-32 -mr-32"></div>
+            <div class="absolute bottom-12 left-12 w-32 h-32 bg-green-200 dark:bg-green-900 rounded-full opacity-20"></div>
         </section>
     </main>
 
