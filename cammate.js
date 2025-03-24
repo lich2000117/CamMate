@@ -1,4 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Header scroll effect
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 20) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+    
     // Form submission handling
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
@@ -144,6 +154,41 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Trigger once on page load
     setTimeout(animateOnScroll, 100);
+    
+    // Back to top button
+    const createBackToTopButton = function() {
+        // Create the button if it doesn't exist
+        if (!document.querySelector('.back-to-top')) {
+            const backToTopButton = document.createElement('div');
+            backToTopButton.className = 'back-to-top';
+            backToTopButton.innerHTML = `
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+                </svg>
+            `;
+            document.body.appendChild(backToTopButton);
+            
+            // Add click event
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Show/hide based on scroll position
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 500) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+        }
+    };
+    
+    // Initialize back to top button
+    createBackToTopButton();
     
     // Search overlay functionality
     const searchButton = document.getElementById('search-button');

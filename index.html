@@ -19,7 +19,7 @@
         <div class="absolute inset-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md"></div>
         <nav class="container mx-auto px-6 py-4 relative">
             <div class="flex items-center justify-between">
-                <div class="text-2xl font-bold text-gray-800 dark:text-white flex items-center">
+                <a href="#" class="text-2xl font-bold text-gray-800 dark:text-white flex items-center">
                     <div class="mr-3 relative">
                         <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center shadow-lg transform transition-transform hover:scale-110">
                             <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -29,7 +29,7 @@
                         <div class="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white dark:border-gray-900 pulse"></div>
                     </div>
                     <span class="font-bold tracking-tight">Cam<span class="text-blue-600">Mate</span></span>
-                </div>
+                </a>
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#features" class="nav-link text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Features</a>
                     <a href="#how-it-works" class="nav-link text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">How it Works</a>
@@ -540,8 +540,155 @@
                                 </svg>
                                 Webhook support
                             </li>
+                            <li class="flex items-center text-gray-600 dark:text-gray-300">
+                                <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                Optional Zigbee/Z-Wave support
+                            </li>
                         </ul>
                         <img src="assets/images/custom-events.jpg" alt="Custom Event Integration" class="mt-6 rounded-lg shadow-lg phone-screenshot">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hardware Section -->
+        <section id="hardware" class="py-20 bg-white dark:bg-gray-800 relative z-10">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-6">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500">Hardware Specifications</span>
+                    <div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
+                </h2>
+                <p class="text-lg text-center text-gray-600 dark:text-gray-300 mb-16 max-w-3xl mx-auto">
+                    Powerful hardware designed for reliability and performance
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="relative">
+                        <img src="assets/images/intel-n100.jpg" alt="Intel N100 Box" class="rounded-lg shadow-xl relative z-10">
+                        <div class="absolute -bottom-6 -right-6 w-full h-full bg-blue-100 dark:bg-blue-900/30 rounded-xl z-0"></div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Intel N100 Processing Unit</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6">
+                            Our Cam Mate system is powered by a high-performance Intel N100 processor, designed specifically for efficient AI processing and 24/7 operation.
+                        </p>
+                        <div class="grid grid-cols-2 gap-6 mb-8">
+                            <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Processor</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Intel N100</p>
+                            </div>
+                            <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Memory</h4>
+                                <p class="text-gray-600 dark:text-gray-300">16GB DDR4</p>
+                            </div>
+                            <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Storage</h4>
+                                <p class="text-gray-600 dark:text-gray-300">512GB SSD (expandable to 4TB)</p>
+                            </div>
+                            <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Connectivity</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Ethernet, Wi-Fi, Bluetooth</p>
+                            </div>
+                        </div>
+                        <h4 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">System Expandability</h4>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6">
+                            The system is designed with flexibility in mind, running on a powerful virtual machine infrastructure that allows for exceptional expandability:
+                        </p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center text-gray-600 dark:text-gray-300">
+                                <svg class="w-5 h-5 text-blue-600 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                </svg>
+                                Run multiple services simultaneously
+                            </li>
+                            <li class="flex items-center text-gray-600 dark:text-gray-300">
+                                <svg class="w-5 h-5 text-blue-600 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                </svg>
+                                Easy storage expansion options
+                            </li>
+                            <li class="flex items-center text-gray-600 dark:text-gray-300">
+                                <svg class="w-5 h-5 text-blue-600 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                </svg>
+                                Future-proof with updatable virtual infrastructure
+                            </li>
+                        </ul>
+                        <a href="#contact" class="btn-primary inline-flex items-center">
+                            <span>Discuss Hardware Options</span>
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Voice Capabilities Section -->
+        <section id="voice" class="py-20 bg-gray-50 dark:bg-gray-900 relative z-10">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-6">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500">Voice Control & Interaction</span>
+                    <div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
+                </h2>
+                <p class="text-lg text-center text-gray-600 dark:text-gray-300 mb-16 max-w-3xl mx-auto">
+                    Natural voice interactions to control and query your security system
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Voice-Enabled Security</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6">
+                            Cam Mate's voice capabilities provide a seamless way to interact with your security system through natural language commands and queries, all processed locally for maximum privacy.
+                        </p>
+                        <div class="space-y-6 mb-8">
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 dark:bg-blue-900 rounded-full p-2 mr-4 flex-shrink-0 mt-1">
+                                    <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Natural Commands</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">
+                                        "Show me the front door camera," "When was the last motion detected in the backyard?" or "Alert me if someone approaches the garage door."
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 dark:bg-blue-900 rounded-full p-2 mr-4 flex-shrink-0 mt-1">
+                                    <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Privacy-First Design</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">
+                                        All voice processing happens locally on your Cam Mate device, ensuring your voice commands never leave your network.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 dark:bg-blue-900 rounded-full p-2 mr-4 flex-shrink-0 mt-1">
+                                    <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Smart Assistant Integration</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">
+                                        Works with popular smart assistants while maintaining privacy controls, giving you the flexibility to choose how you interact with your system.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <img src="assets/images/voice-control.jpg" alt="Voice Control Interface" class="rounded-lg shadow-xl relative z-10">
+                        <div class="absolute -bottom-6 -left-6 w-full h-full bg-blue-100 dark:bg-blue-900/30 rounded-xl z-0"></div>
                     </div>
                 </div>
             </div>
@@ -562,7 +709,7 @@
                     <div>
                         <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Our Mission</h3>
                         <p class="text-gray-600 dark:text-gray-300 mb-6">
-                            Founded by Chenghao Li, Cam Mate was born from a simple idea: advanced security camera intelligence should be accessible to everyone, while preserving privacy and control.
+                            Cam Mate was born from a simple idea: advanced security camera intelligence should be accessible to everyone, while preserving privacy and control.
                         </p>
                         <p class="text-gray-600 dark:text-gray-300 mb-6">
                             We're committed to bringing cutting-edge technology and convenience to every home owner, leveraging open source software to create solutions that are powerful yet affordable.
@@ -593,7 +740,7 @@
                     </div>
                     <div class="flex justify-center">
                         <div class="relative">
-                            <img src="assets/images/founder.jpg" alt="Chenghao Li - Founder" class="rounded-xl shadow-xl relative z-10 max-w-xs">
+                            <img src="assets/images/company.jpg" alt="Cam Mate - AI Camera Assistant" class="rounded-xl shadow-xl relative z-10 max-w-xs">
                             <div class="absolute -bottom-6 -right-6 w-full h-full bg-blue-100 dark:bg-blue-900/30 rounded-xl z-0"></div>
                         </div>
                     </div>
@@ -687,8 +834,8 @@
                     © 2025 Cam Mate. All rights reserved.
                 </div>
                 <div class="flex space-x-6">
-                    <a href="#privacy" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Privacy Policy</a>
-                    <a href="#terms" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Terms of Service</a>
+                    <a href="privacy-terms.html" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Privacy Policy</a>
+                    <a href="privacy-terms.html#terms" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Terms of Service</a>
                 </div>
             </div>
         </div>
