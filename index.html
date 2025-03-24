@@ -21,10 +21,27 @@
                     Cam Mate
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#features" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Features</a>
-                    <a href="#how-it-works" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">How it Works</a>
-                    <a href="#use-cases" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Use Cases</a>
-                    <a href="#contact" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl">Contact Us</a>
+                    <a href="#features" class="nav-link text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Features</a>
+                    <a href="#how-it-works" class="nav-link text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">How it Works</a>
+                    <a href="#use-cases" class="nav-link text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Use Cases</a>
+                    <a href="cameras.html" class="nav-link text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Supported Cameras</a>
+                    <a href="#contact" class="btn-primary">Contact Us</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                    <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-white dark:bg-gray-800 shadow-lg">
+                        <div class="px-6 py-4 space-y-4">
+                            <a href="#features" class="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Features</a>
+                            <a href="#how-it-works" class="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">How it Works</a>
+                            <a href="#use-cases" class="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Use Cases</a>
+                            <a href="cameras.html" class="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Supported Cameras</a>
+                            <a href="#contact" class="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Contact Us</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -215,7 +232,7 @@
                             </div>
                             <div class="flex items-center space-x-2">
                                 <span class="w-2 h-2 bg-blue-600 rounded-full"></span>
-                                <span class="text-gray-600 dark:text-gray-300">French</span>
+                                <span class="text-gray-600 dark:text-gray-300">Mandarin</span>
                             </div>
                             <div class="flex items-center space-x-2">
                                 <span class="w-2 h-2 bg-blue-600 rounded-full"></span>
@@ -232,12 +249,6 @@
                         <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Custom Event Integration</h3>
                         <p class="text-gray-600 dark:text-gray-300 mb-6">Extend beyond camera events with custom event support for your entire security system.</p>
                         <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-blue-600 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
-                                </svg>
-                                <p class="text-gray-600 dark:text-gray-300">Add custom events from any source</p>
-                            </li>
                             <li class="flex items-start">
                                 <svg class="w-6 h-6 text-blue-600 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
@@ -275,35 +286,6 @@
                         <img src="assets/images/business.jpg" alt="Small Business" class="w-full h-48 object-cover rounded-lg mb-4">
                         <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Small Businesses</h3>
                         <p class="text-gray-600 dark:text-gray-300">Protect your business with professional-grade security features</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section class="py-20">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-16">What Our Customers Say</h2>
-                <div class="grid md:grid-cols-2 gap-12">
-                    <div class="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-lg">
-                        <div class="flex items-center mb-6">
-                            <img src="assets/images/testimonial-1.jpg" alt="Sarah" class="w-12 h-12 rounded-full mr-4">
-                            <div>
-                                <h4 class="font-semibold text-gray-900 dark:text-white">Sarah</h4>
-                                <p class="text-gray-600 dark:text-gray-300">Melbourne</p>
-                            </div>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-300">"Cam Mate gave us real-time alerts for deliveries—no monthly fees! The local AI processing is fast and reliable."</p>
-                    </div>
-                    <div class="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-lg">
-                        <div class="flex items-center mb-6">
-                            <img src="assets/images/testimonial-2.jpg" alt="Michael" class="w-12 h-12 rounded-full mr-4">
-                            <div>
-                                <h4 class="font-semibold text-gray-900 dark:text-white">Michael</h4>
-                                <p class="text-gray-600 dark:text-gray-300">Melbourne</p>
-                            </div>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-300">"As a small business owner, Cam Mate's privacy-first approach and local processing give me peace of mind."</p>
                     </div>
                 </div>
             </div>
@@ -363,6 +345,35 @@
                                 <p class="text-gray-600 dark:text-gray-300">Flexible retention policies</p>
                             </li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-16">What Our Customers Say</h2>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-lg">
+                        <div class="flex items-center mb-6">
+                            <img src="assets/images/testimonial-1.jpg" alt="Wesley" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">Wesley</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Melbourne</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300">"Cam Mate gave us real-time alerts for deliveries—no monthly fees! The local AI processing is fast and reliable."</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-lg">
+                        <div class="flex items-center mb-6">
+                            <img src="assets/images/testimonial-2.jpg" alt="Michael" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">Michael</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Melbourne</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300">"As a small business owner, Cam Mate's privacy-first approach and local processing give me peace of mind."</p>
                     </div>
                 </div>
             </div>
