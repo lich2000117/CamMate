@@ -63,35 +63,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Dark mode toggle
-    const darkModeToggles = document.querySelectorAll('#dark-mode-toggle, #mobile-dark-mode-toggle');
-    
-    // Check for saved theme preference or prefer-color-scheme
-    const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    // Check for saved theme in localStorage
-    const savedTheme = localStorage.getItem('theme');
-    
-    // If we have a saved theme, use that, otherwise use system preference
-    if (savedTheme === 'dark' || (!savedTheme && prefersDarkMode)) {
-        document.documentElement.classList.add('dark');
-    }
-    
-    // Add event listeners to all dark mode toggle buttons
-    darkModeToggles.forEach(toggle => {
-        if (toggle) {
-            toggle.addEventListener('click', function() {
-                document.documentElement.classList.toggle('dark');
-                
-                // Save preference to localStorage
-                if (document.documentElement.classList.contains('dark')) {
-                    localStorage.setItem('theme', 'dark');
-                } else {
-                    localStorage.setItem('theme', 'light');
-                }
-            });
-        }
-    });
     
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
