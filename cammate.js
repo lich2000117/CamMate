@@ -56,19 +56,103 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Handle dark mode toggle
     const darkModeToggle = document.querySelector('[data-dark-toggle]');
+    const mobileDarkModeToggle = document.querySelector('[data-mobile-dark-toggle]');
+    
+    // Function to toggle dark mode
+    function toggleDarkMode() {
+        document.documentElement.classList.toggle('dark');
+        localStorage.setItem('darkMode', document.documentElement.classList.contains('dark') ? 'enabled' : 'disabled');
+    }
+    
+    // Check for saved dark mode preference
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        document.documentElement.classList.add('dark');
+    }
+    
+    // Add event listeners for dark mode toggles
     if (darkModeToggle) {
-        darkModeToggle.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            localStorage.setItem('darkMode', 
-                document.documentElement.classList.contains('dark') ? 'dark' : 'light'
-            );
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+    }
+    
+    if (mobileDarkModeToggle) {
+        mobileDarkModeToggle.addEventListener('click', toggleDarkMode);
+    }
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                // Close mobile menu if open
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+                
+                // Scroll to the target with smooth behavior
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100, // Adjust for header height
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Animation on scroll
+    const animateOnScroll = function() {
+        const elements = document.querySelectorAll('.fade-in:not(.visible), .slide-in:not(.visible)');
+        
+        elements.forEach(element => {
+            // Check if element is in viewport
+            const rect = element.getBoundingClientRect();
+            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+            
+            if (rect.top <= windowHeight * 0.8) {
+                element.classList.add('visible');
+                // Set opacity to 1 to make the element visible
+                element.style.opacity = '1';
+            }
+        });
+    };
+    
+    // Hide elements initially
+    document.querySelectorAll('.fade-in, .slide-in').forEach(element => {
+        // Only hide if not already visible and no inline style is set
+        if (!element.style.opacity) {
+            element.style.opacity = '0';
+        }
+    });
+    
+    // Run animation check on scroll
+    window.addEventListener('scroll', animateOnScroll);
+    
+    // Run once on page load
+    animateOnScroll();
+
+    // Search button functionality (simplified example)
+    const searchButton = document.getElementById('search-button');
+    
+    if (searchButton) {
+        searchButton.addEventListener('click', function() {
+            const searchTerm = prompt('Enter search term:');
+            if (searchTerm) {
+                alert(`Searching for: ${searchTerm}`);
+                // Implement actual search functionality here
+            }
         });
     }
 
-    // Check for saved dark mode preference
-    if (localStorage.getItem('darkMode') === 'dark' || 
-        (!localStorage.getItem('darkMode') && 
-         window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-    }
+    // Add background parallax effect
+    window.addEventListener('scroll', function() {
+        const scrollY = window.scrollY;
+        const heroSection = document.querySelector('.animated-gradient');
+        
+        if (heroSection) {
+            heroSection.style.backgroundPosition = `50% ${scrollY * 0.05}px`;
+        }
+    });
 });
