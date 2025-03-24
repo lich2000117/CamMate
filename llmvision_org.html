@@ -1,0 +1,1226 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NCX9DPRTJV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-NCX9DPRTJV');
+    </script>
+    <title>LLM Vision</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="https://llmvision.org/assets/open-graph/home.webp" />
+    <meta property="og:title" content="LLM Vision" />
+    <meta property="og:description"
+        content="An intelligent Home Assistant integration to analyze images, videos, and more with AI." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./tailwind-config.js"></script>
+    <script src="./llmvision.js"></script>
+    <link rel="stylesheet" href="./assets/fonts/fonts.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="icon" href="/assets/favicon/favicon-light-32x32.png" sizes="32x32"
+        media="(prefers-color-scheme: light)" />
+    <link rel="icon" href="/assets/favicon/favicon-dark-32x32.png" sizes="32x32" media="(prefers-color-scheme: dark)" />
+</head>
+
+<body class="bg-white dark:bg-black font-poppins text-pretty">
+
+
+    <header class="font-poppinsSemiBold lg:sticky absolute mx-auto max-w-[70vw] inset-x-0 top-5 z-50">
+        <nav class="relative grid grid-cols-5 items-center justify-between lg:py-3 mt-8 lg:mt-0 bg-white/50 sm:[@supports(backdrop-filter:blur(0))]:bg-[#e8eaec]/50 dark:sm:[@supports(backdrop-filter:blur(0))]:bg-[#313a47]/50 sm:[@supports(backdrop-filter:blur(0))]:backdrop-blur-2xl rounded-full"
+            aria-label="Global">
+            <div
+                class="absolute left-1/2 transform -translate-x-1/2 lg:static lg:transform-none flex lg:flex-1 justify-center sm:justify-center lg:justify-start items-center group">
+                <a href="#" class="-m-1.5 p-1.5 flex items-center">
+                    <img class="block dark:hidden lg:ml-4 h-8 w-auto" src="./assets/icon-light.png"
+                        alt="LLM Vision logo">
+                    <img class="hidden dark:block lg:ml-4 h-8 w-auto" src="./assets/icon-dark.png"
+                        alt="LLM Vision logo">
+                    <span class="ml-2 text-black dark:text-white text-base">LLM Vision</span>
+                </a>
+            </div>
+            <div class="hidden sm:hidden col-start-2 col-span-3 lg:flex lg:gap-x-12 justify-center pr-8">
+                <a class="text-sm/6 text-gray-900 hover:text-gray-900 dark:text-white dark:hover:text-white"
+                    href="./">Integration</a>
+                <a class="text-sm/6 text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+                    href="./card/">Card</a>
+                <a class="text-sm/6 text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+                    href="./gallery/">Gallery</a>
+            </div>
+            <div class="hidden col-start-5 lg:flex justify-end lg:mr-3">
+                <a id="get-started" href="https://llm-vision.gitbook.io/getting-started"
+                    class="rounded-full bg-cosmos-400 px-4 py-2.5 text-sm text-black shadow-sm hover:bg-cosmos-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cosmos-600 flex items-center"><span
+                        class="material-symbols-rounded mr-1 text-[20px]">arrow_outward</span>Get
+                    started</a>
+            </div>
+        </nav>
+    </header>
+
+    <!--Hero Section-->
+    <div class="py-6 sm:py-32 mt-[12vh] mb-16 lg:mb-0 lg:pb-0">
+        <div class="relative isolate mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+            <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+                aria-hidden="true">
+                <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-white to-cosmos-200 opacity-40 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+                    style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+                </div>
+            </div>
+            <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+                aria-hidden="true">
+                <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-cosmos-200 to-cosmos-400 opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+                    style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+                </div>
+            </div>
+            <div class="lg:grid lg:grid-cols-2">
+                <div class="">
+                    <div class="mb-8 flex justify-center lg:justify-start">
+                        <div
+                            class="z-20 relative rounded-full px-3 py-1 text-sm/6 text-gray-600 dark:text-gray-300 ring-1 ring-cosmos-900/10 dark:ring-cosmos-400/30 hover:ring-cosmos-900/20 dark:hover:ring-cosmos-200/60">
+                            v1.4.1 is here! <a href="https://github.com/valentinfrlch/ha-llmvision/releases/latest"
+                                class="text-cosmos-600 dark:text-cosmos-400"><span class="absolute inset-0"
+                                    aria-hidden="true"></span>Release notes <span aria-hidden="true">&rarr;</span></a>
+                        </div>
+                    </div>
+                    <div class="text-center lg:text-left">
+                        <h1 class="text-5xl tracking-tight text-gray-900 dark:text-gray-100 sm:text-7xl">
+                            AI Vision for Home Assistant</h1>
+                        <p
+                            class="tracking-tight mt-8 text-pretty text-lg text-gray-500 dark:text-gray-400 sm:text-xl/8">
+                            Leverage the power of
+                            multimodal LLMs to automate your smart home
+                        </p>
+                        <div class="mt-10 flex flex-col sm:flex-row gap-x-6 gap-y-4 justify-center lg:justify-start">
+                            <a href="https://llm-vision.gitbook.io/getting-started"
+                                class="sm:w-auto relative text-sm inline-flex items-center justify-center z-20 px-4 py-2 rounded-full border border-transparent bg-cosmos hover:bg-cosmos-200 after:absolute after:inset-0 after:rounded-full hover:after:shadow-[inset_0_0_2px_1px_#fff] whitespace-nowrap text-gray-900">
+                                Get Started
+                            </a>
+
+                            <a href="https://github.com/valentinfrlch/ha-llmvision"
+                                class="sm:w-auto relative text-sm inline-flex items-center justify-center z-20 px-4 py-2 rounded-full border border-transparent bg-black/5 dark:bg-white/15 hover:bg-cosmos/20 ring-1 ring-gray-500/15 dark:ring-gray-200/15 after:absolute after:inset-0 after:rounded-full after:shadow-[inset_0_0_2px_1px_#ffffff4d] whitespace-nowrap dark:text-gray-200 text-gray-900">
+                                <svg class="h-5 w-5 inline mr-2" fill="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.71-2.78.61-3.37-1.34-3.37-1.34-.45-1.15-1.1-1.46-1.1-1.46-.9-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0112 6.8c.85.004 1.71.11 2.51.32 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85 0 1.34-.01 2.42-.01 2.75 0 .27.18.58.69.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden lg:block">
+                    <div class="absolute left-3/4 top-7 h-full w-[26rem] -translate-x-1/2">
+                        <img alt="Image of a courier" src="./assets/card/courier.webp"
+                            style="left: 250px; top: 50px; transform: none; will-change: auto;"
+                            class="absolute w-[100px] h-auto p-3 rounded-[25px] blur-sm">
+                        <img alt="Card showing event" src="./assets/card/event2.webp"
+                            style="left: -50px; top: 200px; transform: none; will-change: auto;"
+                            class="absolute w-[250px] h-auto p-3 rounded-[25px] blur-[2px]">
+                    </div>
+                    <div class="absolute inset-0">
+                        <div style="--opacity: 3%; width: 528px; height: 528px; will-change: auto;"
+                            class="absolute left-3/4 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,transparent_25%,color-mix(in_srgb,_theme(colors.cosmos.500)_var(--opacity),transparent)_100%)] ring-1 ring-inset ring-cosmos-500/[8%]">
+                        </div>
+                        <div style="--opacity: 5%; width: 400px; height: 400px; will-change: auto;"
+                            class="absolute left-3/4 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,transparent_25%,color-mix(in_srgb,_theme(colors.cosmos.500)_var(--opacity),transparent)_100%)] ring-1 ring-inset ring-cosmos-500/[8%]">
+                        </div>
+                        <div style="--opacity: 5%; width: 272px; height: 272px; will-change: auto;"
+                            class="absolute left-3/4 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,transparent_25%,color-mix(in_srgb,_theme(colors.cosmos.500)_var(--opacity),transparent)_100%)] ring-1 ring-inset ring-cosmos-500/[8%]">
+                        </div>
+                        <div style="--opacity: 10%; width: 144px; height: 144px; will-change: auto;"
+                            class="absolute left-3/4 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,transparent_25%,color-mix(in_srgb,_theme(colors.cosmos.500)_var(--opacity),transparent)_100%)] ring-1 ring-inset ring-cosmos-500/[8%]">
+                        </div>
+                    </div>
+                    <div class="absolute left-3/4 top-7 h-full w-[26rem] -translate-x-1/2">
+                        <div
+                            class="absolute left-44 top-32 flex size-16 items-center justify-center rounded-full bg-white dark:bg-gray-800 shadow ring-1 ring-black/5 z-40">
+                            <img src="./assets/icon-light.png" class="block dark:hidden w-10 h-10"
+                                alt="LLM Vision logo">
+                            <img src="./assets/icon-dark.png" class="hidden dark:block w-10 h-10" alt="LLM Vision logo">
+                        </div>
+
+                        <div>
+                            <img alt="Card showing event" src="./assets/card/event.webp"
+                                style="left: 165px; top: -50px; transform: none; will-change: auto;"
+                                class="animate-on-scroll animation-delay-300 opacity-0 absolute w-[300px] h-auto p-3 rounded-[25px]">
+
+                            <div
+                                class="animate-on-scroll animation-delay-500 opacity-0 absolute top-[210px] left-[250px] border-2 border-cosmos-600 dark:border-cosmos rounded-2xl px-3 py-2 max-w-[170px] text-cosmos-600 dark:text-cosmos text-sm">
+                                Yes, a courier was seen carrying a package towards your house at
+                                4:46
+                                PM.
+                            </div>
+                            <div class="animate-on-scroll animation-delay-200 opacity-0 text-[#1f2937] text-sm text-right bg-cosmos rounded-xl px-2 py-3 max-w-xs absolute -left-[100px] top-[70px]"
+                                style="will-change: auto;">
+                                Has my package been delivered yet?
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Bento Board Section-->
+    <section id="features" data-section-name="Features">
+        <div id="bento" class="py-6 sm:py-32 lg:mt-16">
+            <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+                <p
+                    class="font-poppinsSemiBold mx-auto mt-2 max-w-lg text-balance text-center text-4xl tracking-tight text-gray-950 dark:text-gray-100 sm:text-5xl">
+                    Endless possibilities for automations</p>
+
+                <div class="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
+                    <div
+                        class="max-lg:rounded-t-3xl  lg:col-span-3 lg:rounded-tl-3xl group relative flex flex-col overflow-hidden rounded-lg bg-white dark:bg-gray-800 shadow-sm ring-1 ring-black/5 data-[dark]:bg-gray-800 data-[dark]:ring-white/15">
+                        <div class="relative h-80 shrink-0">
+                            <div class="absolute inset-0">
+                                <div class="p-10 mt-10">
+                                    <img src="./assets/notification.gif" alt="">
+                                </div>
+                            </div>
+                            <div
+                                class="hidden absolute inset-0 bg-gradient-to-t from-white dark:from-gray-800 to-50% group-data-[dark]:from-gray-800 group-data-[dark]:from-[-25%]">
+                            </div>
+                        </div>
+                        <div class="relative p-10">
+                            <h3
+                                class="font-poppinsSemiBold text-xs/5 uppercase tracking-widest text-cosmos data-[dark]:text-gray-400">
+                                Notifications</h3>
+                            <p class="mt-1 text-2xl/8 font-medium tracking-tight text-gray-950 dark:text-white">
+                                Stay in the loop</p>
+                            <p class="mt-2 max-w-[600px] text-sm/6 text-gray-600 dark:text-gray-100">Analyzes
+                                camera
+                                feeds
+                                and Frigate
+                                events to keep you updated.
+                            </p>
+                        </div>
+                    </div>
+                    <div
+                        class="lg:col-span-3 lg:rounded-tr-3xl group relative flex flex-col overflow-hidden rounded-lg bg-white dark:bg-gray-800 shadow-sm ring-1 ring-black/5 data-[dark]:bg-gray-800 data-[dark]:ring-white/15">
+                        <div class="relative h-80 shrink-0">
+                            <div class="p-10 mt-10">
+                                <div class="flex flex-col space-y-6 px-5 py-5 mb-5">
+                                    <div class="flex justify-end">
+                                        <div class="animate-on-scroll animation-delay-200 opacity-0 bg-cosmos rounded-2xl px-3 py-2 max-w-xs">
+                                            <div class="text-[#1f2937] text-sm text-right">
+                                                Has my package been delivered yet?
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-start">
+                                        <div
+                                            class="animate-on-scroll animation-delay-500 opacity-0 border-2 border-cosmos-600 dark:border-cosmos rounded-2xl px-3 py-2 max-w-xs">
+                                            <div class="text-cosmos-600 dark:text-cosmos text-sm">
+                                                Yes, a courier was seen carrying a package towards your house at
+                                                1:14
+                                                PM. It
+                                                looks
+                                                like your package has been delivered!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="hidden absolute inset-0 bg-gradient-to-t from-white dark:from-gray-800 to-50% group-data-[dark]:from-gray-800 group-data-[dark]:from-[-25%]">
+                            </div>
+                        </div>
+                        <div class="relative p-10">
+                            <h3
+                                class="font-poppinsSemiBold text-xs/5 uppercase tracking-widest text-cosmos data-[dark]:text-gray-400">
+                                Insight</h3>
+                            <p class="mt-1 text-2xl/8 font-medium tracking-tight text-gray-950 dark:text-white">
+                                Just ask</p>
+                            <p class="mt-2 max-w-[600px] text-sm/6 text-gray-600 dark:text-gray-100">LLM Vision
+                                builds a detailed timeline of events around your home, so you know what happened
+                                and
+                                when.
+                                You can even ask it about a specific event.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="lg:col-span-2 lg:rounded-bl-3xl group relative flex flex-col overflow-hidden rounded-lg bg-white dark:bg-gray-800 shadow-sm ring-1 ring-black/5 data-[dark]:bg-gray-800 data-[dark]:ring-white/15">
+                        <div class="relative h-80 shrink-0">
+                            <div aria-hidden="true" class="relative size-full flex items-center justify-center">
+                                <div
+                                    class="relative flex items-center justify-center w-[300px] h-[200px] perspective-[1000px]">
+                                    <img src="./assets/bento-grid/unmarked.jpg" class="absolute rounded-xl border border-gray-500 dark:border-white inset-0 w-full h-full object-cover opacity-0 backdrop-blur-md 
+                                    translate-x-[15px] translate-y-[-15px] skew-y-6 
+                                    transition-opacity duration-700">
+                                    <img src="./assets/bento-grid/unmarked.jpg" class="absolute rounded-xl border border-gray-500 dark:border-white filter grayscale inset-0 w-full h-full object-cover opacity-0 backdrop-blur-sm 
+                                    translate-x-[-12px] translate-y-[12px] skew-y-6
+                                    transition-opacity duration-700 delay-300">
+                                    <img src="./assets/bento-grid/person.png" class="absolute rounded-xl inset-0 w-full h-full object-cover 
+                                    translate-x-[-40px] translate-y-[40px] skew-y-6
+                                    opacity-0 transition-opacity duration-700 delay-700">
+                                </div>
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        const images = document.querySelectorAll('.transition-opacity');
+
+                                        const observer = new IntersectionObserver((entries, observer) => {
+                                            entries.forEach(entry => {
+                                                if (entry.isIntersecting) {
+                                                    entry.target.classList.add('opacity-100');
+                                                    observer.unobserve(entry.target);
+                                                }
+                                            });
+                                        }, {
+                                            threshold: 0.5
+                                        });
+
+                                        images.forEach(image => {
+                                            observer.observe(image);
+                                        });
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                        <div class="relative p-10">
+                            <h3 class="font-poppinsSemiBold text-xs/5 uppercase tracking-widest text-cosmos">
+                                Optimized</h3>
+                            <p class="mt-1 text-2xl/8 font-medium tracking-tight text-gray-950 dark:text-white">
+                                Image Pipeline</p>
+                            <p class="mt-2 max-w-[600px] text-sm/6 text-gray-600 dark:text-gray-100">An algorithm
+                                automatically picks the most relevant images to analyze and optimizes them for analysis.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="lg:col-span-2 group relative flex flex-col overflow-hidden rounded-lg bg-white dark:bg-gray-800 shadow-sm ring-1 ring-black/5 data-[dark]:bg-gray-800 data-[dark]:ring-white/15">
+                        <div class="relative h-80 shrink-0">
+                            <div aria-hidden="true" class="relative h-full overflow-hidden">
+                                <div class="absolute inset-0">
+                                    <div style="--opacity: 3%; width: 528px; height: 528px; will-change: auto;"
+                                        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,transparent_25%,color-mix(in_srgb,_theme(colors.cosmos.500)_var(--opacity),transparent)_100%)] ring-1 ring-inset ring-cosmos-500/[8%]">
+                                    </div>
+                                    <div style="--opacity: 5%; width: 400px; height: 400px; will-change: auto;"
+                                        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,transparent_25%,color-mix(in_srgb,_theme(colors.cosmos.500)_var(--opacity),transparent)_100%)] ring-1 ring-inset ring-cosmos-500/[8%]">
+                                    </div>
+                                    <div style="--opacity: 5%; width: 272px; height: 272px; will-change: auto;"
+                                        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,transparent_25%,color-mix(in_srgb,_theme(colors.cosmos.500)_var(--opacity),transparent)_100%)] ring-1 ring-inset ring-cosmos-500/[8%]">
+                                    </div>
+                                    <div style="--opacity: 10%; width: 144px; height: 144px; will-change: auto;"
+                                        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,transparent_25%,color-mix(in_srgb,_theme(colors.cosmos.500)_var(--opacity),transparent)_100%)] ring-1 ring-inset ring-cosmos-500/[8%]">
+                                    </div>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-white dark:from-gray-800 to-35%">
+                                    </div>
+                                </div>
+                                <div class="absolute left-1/2 h-full w-[26rem] -translate-x-1/2">
+                                    <div
+                                        class="absolute left-44 top-32 flex size-16 items-center justify-center rounded-full bg-white dark:bg-gray-800 shadow ring-1 ring-black/5">
+                                        <img src="./assets/icon-light.png" class="block dark:hidden w-10 h-10"
+                                            alt="LLM Vision logo">
+                                        <img src="./assets/icon-dark.png" class="hidden dark:block w-10 h-10"
+                                            alt="LLM Vision logo">
+                                    </div>
+                                    <img alt="" src="./assets/providers/anthropic-light.svg"
+                                        style="left: 360px; top: 144px; transform: none; will-change: auto;"
+                                        class="block dark:hidden absolute size-16 p-3 rounded-full bg-white dark:bg-gray-800 shadow ring-1 ring-black/5">
+                                    <img alt="" src="./assets/providers/anthropic-dark.svg"
+                                        style="left: 360px; top: 144px; transform: none; will-change: auto;"
+                                        class="hidden dark:block absolute size-16 p-3 rounded-full bg-white dark:bg-gray-800 shadow ring-1 ring-black/5">
+                                    <img alt="" src="./assets/providers/google-light.svg"
+                                        style="left: 285px; top: 20px; transform: none; will-change: auto;"
+                                        class="block dark:hidden absolute size-16 p-3 rounded-full bg-white dark:bg-gray-800 shadow ring-1 ring-black/5">
+                                    <img alt="" src="./assets/providers/google-dark.svg"
+                                        style="left: 285px; top: 20px; transform: none; will-change: auto;"
+                                        class="hidden dark:block absolute size-16 p-3 rounded-full bg-white dark:bg-gray-800 shadow ring-1 ring-black/5">
+                                    <img alt="" src="./assets/providers/groq-light.svg"
+                                        style="left: 255px; top: 210px; transform: none; will-change: auto;"
+                                        class="block dark:hidden absolute size-16 p-3 rounded-full bg-white dark:bg-gray-800 shadow ring-1 ring-black/5">
+                                    <img alt="" src="./assets/providers/groq-dark.svg"
+                                        style="left: 255px; top: 210px; transform: none; will-change: auto;"
+                                        class="hidden dark:block absolute size-16 p-3 rounded-full bg-white dark:bg-gray-800 shadow ring-1 ring-black/5">
+                                    <img alt="" src="./assets/providers/openai-light.svg"
+                                        style="left: 144px; top: 40px; transform: none; will-change: auto;"
+                                        class="block dark:hidden absolute size-16 p-3 rounded-full bg-white dark:bg-gray-800 shadow ring-1 ring-black/5">
+                                    <img alt="" src="./assets/providers/openai-dark.svg"
+                                        style="left: 144px; top: 40px; transform: none; will-change: auto;"
+                                        class="hidden dark:block absolute size-16 p-3 rounded-full bg-white dark:bg-gray-800 shadow ring-1 ring-black/5">
+                                    <img alt="" src="./assets/providers/openwebui-light.png"
+                                        style="left: 36px; top: 56px; transform: none; will-change: auto;"
+                                        class="block dark:hidden absolute size-16 p-3 rounded-full bg-white dark:bg-gray-800 shadow ring-1 ring-black/5">
+                                    <img alt="" src="./assets/providers/openwebui-dark.png"
+                                        style="left: 36px; top: 56px; transform: none; will-change: auto;"
+                                        class="hidden dark:block absolute size-16 p-3 rounded-full bg-white dark:bg-gray-800 shadow ring-1 ring-black/5">
+                                    <img alt="" src="./assets/providers/ollama-light.svg"
+                                        style="left: 96px; top: 176px; transform: none; will-change: auto;"
+                                        class="block dark:hidden absolute size-16 p-3 rounded-full bg-white dark:bg-gray-800 shadow ring-1 ring-black/5">
+                                    <img alt="" src="./assets/providers/ollama-dark.svg"
+                                        style="left: 96px; top: 176px; transform: none; will-change: auto;"
+                                        class="hidden dark:block absolute size-16 p-3 rounded-full bg-white dark:bg-gray-800 shadow ring-1 ring-black/5">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative p-10">
+                            <h3 class="font-poppinsSemiBold text-xs/5 uppercase tracking-widest text-cosmos">
+                                Providers</h3>
+                            <p class="mt-1 text-2xl/8 font-medium tracking-tight text-gray-950 dark:text-white">
+                                Powerful Integrations</p>
+                            <p class="mt-2 max-w-[600px] text-sm/6 text-gray-600 dark:text-gray-100">Integrate
+                                any
+                                AI
+                                provider you already use, or host your own LLM for maximum privacy.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="max-lg:rounded-b-3xl lg:col-span-2 lg:rounded-br-3xl group relative flex flex-col overflow-hidden rounded-lg bg-white dark:bg-gray-800 shadow-sm ring-1 ring-black/5 data-[dark]:bg-gray-800 data-[dark]:ring-white/15">
+                        <div class="relative h-80 shrink-0">
+                            <div aria-hidden="true" class="relative size-full">
+                                <div
+                                    class="absolute bottom-0 left-10 right-0 top-10 overflow-hidden rounded-l-xl bg-gray-300 dark:bg-gray-800 shadow-2xl">
+                                    <div class="flex bg-gray-700/40 ring-1 ring-white/5">
+                                        <div class="-mb-px flex text-sm/6 font-medium text-gray-400">
+                                            <div
+                                                class="border-b border-r border-b-white/20 border-r-white/10 bg-white/5 px-4 py-2 text-white">
+                                                example.yaml</div>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="px-6 pb-14 pt-6 bg-gray-100 dark:bg-[#313a47] flex items-start px-1 text-sm">
+                                        <div aria-hidden="true"
+                                            class="select-none border-r border-slate-300 dark:border-slate-200/5 pr-2 font-mono text-slate-400 dark:text-slate-500">
+                                            1<br>2<br>3<br>4<br>5<br>6<br>7<br>8</div>
+                                        <pre class="pl-3 text-gray dark:text-gray-300 font-mono">action: llmvision.image_analyzer
+data:
+  message: Who's at the door?
+  image_entity:
+    - camera.front_door
+  max_tokens: 50
+  temperature: 0.2
+  include_filename: false
+                            </pre>
+                                        <div class="px-6 pb-14 pt-6">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative p-10">
+                            <h3 class="font-poppinsSemiBold text-xs/5 uppercase tracking-widest text-cosmos">
+                                Usage</h3>
+                            <p class="mt-1 text-2xl/8 font-medium tracking-tight text-gray-950 dark:text-white">
+                                Easy to use</p>
+                            <p class="mt-2 max-w-[600px] text-sm/6 text-gray-600 dark:text-gray-100">Get started
+                                with
+                                LLM
+                                Vision with just a few simple lines of code.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Overview Section-->
+    <section id="overview" data-section-name="Overview">
+        <div class="tracking-tight relative isolate overflow-hidden px-6 py-6 sm:py-12 lg:overflow-visible lg:px-0">
+            <div
+                class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
+                <div
+                    class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+                    <div class="lg:pr-4">
+                        <div class="lg:max-w-lg">
+                            <p class="text-base/7 font-poppinsSemiBold text-cosmos-600 dark:text-cosmos-400">
+                                How
+                                it works</p>
+                            <h1
+                                class="mt-2 text-pretty text-4xl font-poppinsSemiBold tracking-tight text-gray-900 dark:text-gray-100 sm:text-5xl">
+                                Overview
+                            </h1>
+                            <p class="mt-6 text-xl/8 text-gray-700 dark:text-gray-300">
+                                LLM Vision is a Home Assistant integration that can analyze images, videos,
+                                live
+                                camera
+                                feeds and Frigate events using the vision capabilities of multimodal LLMs.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
+
+                    <div class="mt-16 h-[36rem] sm:h-auto sm:w-[76rem] relative aspect-[var(--width)/var(--height)] [--radius:theme(borderRadius.xl)]"
+                        style="--width: 1216; --height: 768;">
+                        <img alt="" src="./assets/blueprint-ui-dark.png"
+                            class="rounded-xl shadow-2xl ring-1 ring-black/10 hidden dark:block">
+                        <img alt="" src="./assets/blueprint-ui-light.png"
+                            class="rounded-xl shadow-2xl ring-1 ring-black/10 block dark:hidden">
+                    </div>
+
+                </div>
+                <div
+                    class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+                    <div class="lg:pr-4">
+                        <p class="text-gray-700 dark:text-gray-300">The integration exposes 4 services:</p>
+                        <div class="max-w-xl text-base/7 text-gray-700 dark:text-gray-300 lg:max-w-lg">
+                            <ul role="list" class="mb-8 mt-4 space-y-4 text-gray-600 dark:text-gray-400">
+                                <li class="flex gap-x-3">
+                                    <span><code
+                                            class="bg-gray-100 dark:bg-gray-800 text-cosmos-600 dark:text-cosmos-500 p-1 rounded">image_analyzer</code></span>
+                                    <p> Analyzes one or multiple images from different camera or image
+                                        entities
+                                        or image
+                                        files.</p>
+                                </li>
+                                <li class="flex gap-x-3">
+                                    <span><code
+                                            class="bg-gray-100 dark:bg-gray-800 text-cosmos-600 dark:text-cosmos-500 p-1 rounded">video_analyzer</code></span>
+                                    <p> Extracts and analyzes frames from a video file or frigate event.</p>
+                                </li>
+                                <li class="flex gap-x-3">
+                                    <span><code
+                                            class="bg-gray-100 dark:bg-gray-800 text-cosmos-600 dark:text-cosmos-500 p-1 rounded">stream_analyzer</code></span>
+                                    <p>Captures and analyzes frames from camera entities.</p>
+                                </li>
+                                <li class="flex gap-x-3">
+                                    <span><code
+                                            class="bg-gray-100 dark:bg-gray-800 text-cosmos-600 dark:text-cosmos-500 p-1 rounded">data_analyzer</code></span>
+                                    <p> Analyzes and updates a Home Assistant entity with data extracted
+                                        from an
+                                        image
+                                        based on your prompt.</p>
+                                </li>
+
+                            </ul>
+                            </p>
+                            <p class="text-gray-700 dark:text-gray-300">Frames are fetched through Home
+                                Assistant's
+                                Camera
+                                API.
+                                When using video- or stream analyzer, frames are preprocessed locally and
+                                only
+                                frames
+                                with
+                                enough
+                                movement are sent to the provider. This ensures low latency as well as lower
+                                token
+                                usage.
+                            </p>
+                            <div class="max-w-xl text-base/7 text-gray-700 dark:text-gray-300 lg:max-w-lg">
+                                <ul role="list" class="mt-8 space-y-8 text-gray-600 dark:text-gray-400">
+                                    <li class="flex gap-x-3">
+                                        <span
+                                            class="material-symbols-rounded text-cosmos-600 dark:text-cosmos-400">speed_camera</span>
+                                        <span><span class="font-poppinsSemiBold text-gray-900 dark:text-gray-100">Use
+                                                any
+                                                camera.</span> If you can view the camera stream in Home
+                                            Assistant,
+                                            it'll
+                                            work
+                                            with LLM Vision without any additional setup.</span>
+                                    </li>
+                                    <li class="flex gap-x-3">
+                                        <span
+                                            class="material-symbols-rounded text-cosmos-600 dark:text-cosmos-400">video_file</span>
+                                        <span><span
+                                                class="font-poppinsSemiBold text-gray-900 dark:text-gray-100">Handles
+                                                files
+                                                too.</span> Use image or video files stored locally as
+                                            reference
+                                            for
+                                            people or
+                                            actions.</span>
+                                    </li>
+                                    <li class="flex gap-x-3">
+                                        <span
+                                            class="material-symbols-rounded text-cosmos-600 dark:text-cosmos-400">bolt</span>
+                                        <span><span class="font-poppinsSemiBold text-gray-900 dark:text-gray-100">Low
+                                                token
+                                                usage.</span> To improve latency and reduce the amount of
+                                            tokens
+                                            used,
+                                            the
+                                            built-in downscaler can reduce resolution while retaining
+                                            details.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Events-->
+    <section id="events" data-section-name="Events">
+        <div class="tracking-tight relative isolate overflow-hidden px-6 py-6 sm:py-12 lg:overflow-visible lg:px-0">
+            <div
+                class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
+                <div
+                    class="lg:col-span-2 lg:col-start-2 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:gap-x-8 lg:px-8">
+                    <div class="lg:pr-4">
+                        <div class="lg:max-w-lg">
+                            <p class="font-poppinsSemiBold text-base/7 text-cosmos-600 dark:text-cosmos-400">
+                                Events</p>
+                            <h1
+                                class="mt-2 text-pretty text-4xl font-poppinsSemiBold tracking-tight text-gray-900 dark:text-gray-100 sm:text-5xl">
+                                Know what happened
+                            </h1>
+                            <p class="mt-6 text-xl/8 text-gray-700 dark:text-gray-300">
+                                LLM Vision can remember events so you can ask about them later. A
+                                conversation
+                                agent
+                                such as Extended OpenAI Conversation is required.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="lg:col-span-2 lg:col-start-2 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:gap-x-8 lg:px-8">
+                    <div class="lg:pr-4">
+                        <div class="max-w-xl text-base/7 text-gray-700 dark:text-gray-300 lg:max-w-lg">
+                            <ul role="list" class="mt-8 space-y-8 text-gray-600 dark:text-gray-400">
+                                <li class="flex gap-x-3">
+                                    <span
+                                        class="material-symbols-rounded text-cosmos-600 dark:text-cosmos-400">lock</span>
+                                    <span><span class="font-poppinsSemiBold text-gray-900 dark:text-gray-100">You
+                                            are in
+                                            control.</span> Events are only stored if 'remember' is set to
+                                        true.
+                                        If
+                                        'important' is enabled, events will be classified automatically and
+                                        only
+                                        remembered
+                                        if deemed important.</span>
+                                </li>
+                                <li class="flex gap-x-3">
+                                    <span
+                                        class="material-symbols-rounded text-cosmos-600 dark:text-cosmos-400">hard_disk</span>
+                                    <span><span class="font-poppinsSemiBold text-gray-900 dark:text-gray-100">Stored
+                                            locally.</span> Once analyzed, events never leave your Home
+                                        Assistant
+                                        instance. For the most private setup, a local provider such as
+                                        Ollama or
+                                        LocalAI
+                                        is
+                                        recommended.</span>
+                                </li>
+                                <li class="flex gap-x-3">
+                                    <span
+                                        class="material-symbols-rounded text-cosmos-600 dark:text-cosmos-400">automation</span>
+                                    <span><span class="font-poppinsSemiBold text-gray-900 dark:text-gray-100">Integrates
+                                            seamlessly.</span> Events are exposed as calendar entities
+                                        within
+                                        Home
+                                        Assistant so you can integrate LLM Vision Events into your dashboard
+                                        or
+                                        automations.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="mx-auto lg:ml-8 lg:max-w-none lg:col-start-1 lg:row-start-1 lg:row-span-2 lg:sticky lg:top-2 lg:mt-10 lg:mx-auto lg:grid lg:w-full lg:gap-x-0 lg:px-8">
+                    <div class="flex flex-col h-full relative lg:justify-between">
+
+                        <div class="flex flex-col space-y-2 lg:mt-10 mb-10 lg:mr-10">
+                            <div class="flex justify-end lg:mt-10">
+                                <div class="animate-on-scroll opacity-0 bg-cosmos dark:bg-[#1f2937] rounded-2xl p-4 max-w-xs animate-fadeInScale">
+                                    <div class="text-gray dark:text-cosmos font-medium">
+                                        Has my package been delivered yet?
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-end pr-10 mr-10 pt-5">
+                                <div
+                                    class="animate-on-scroll animation-delay-500 opacity-0 border-2 border-cosmos-600 dark:border-cosmos rounded-2xl p-4 max-w-xs animate-fadeInScale">
+                                    <div class="text-cosmos-600 dark:text-cosmos font-medium">
+                                        Yes, a courier was seen carrying a package towards your house at
+                                        1:14
+                                        PM. It
+                                        looks
+                                        like your package has been delivered!
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="hidden space-y-4 mt-6 lg:self-end lg:mr-10 flex flex-col">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 rounded-full bg-[#1f2937] mr-4 flex items-center justify-center">
+                                    <span
+                                        class="text-2xl material-symbols-rounded text-cosmos dark:text-cosmos">directions_walk</span>
+                                </div>
+                                <div>
+                                    <p class="text-base font-medium text-cosmos">Person seen</p>
+                                    <p class="text-sm text-gray-500">08:52 AM</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 rounded-full bg-[#1f2937] mr-4 flex items-center justify-center">
+                                    <span
+                                        class="text-2xl material-symbols-rounded text-cosmos dark:text-cosmos">directions_car</span>
+                                </div>
+                                <div>
+                                    <p class="text-base font-medium text-cosmos">White SUV seen</p>
+                                    <p class="text-sm text-gray-500">08:55 AM</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 rounded-full bg-[#1f2937] mr-4 flex items-center justify-center">
+                                    <span
+                                        class="text-2xl material-symbols-rounded text-cosmos dark:text-cosmos">package_2</span>
+                                </div>
+                                <div>
+                                    <p class="text-base font-medium text-cosmos">Courier seen</p>
+                                    <p class="text-sm text-gray-500">10:11 AM</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Data Analyzer-->
+    <section id="data-analyzer" data-section-name="Data Analyzer">
+        <div class="tracking-tight relative isolate overflow-hidden px-6 py-6 sm:py-12 lg:overflow-visible lg:px-0">
+            <div
+                class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
+                <div
+                    class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+                    <div class="lg:pr-4">
+                        <div class="lg:max-w-lg">
+                            <p class="text-base/7 font-poppinsSemiBold text-cosmos-600 dark:text-cosmos-400">
+                                Data Analyzer</p>
+                            <h1
+                                class="mt-2 text-pretty text-4xl font-poppinsSemiBold tracking-tight text-gray-900 dark:text-gray-100 sm:text-5xl">
+                                Turn images into data
+                            </h1>
+                            <p class="mt-6 text-xl/8 text-gray-700 dark:text-gray-300">
+                                LLM Vision can extract data from images and update Home Assistant entities.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
+
+                </div>
+                <div
+                    class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+                    <div class="lg:pr-4">
+                        <div class="max-w-xl text-base/7 text-gray-700 dark:text-gray-300 lg:max-w-lg">
+                            <ul role="list" class="mt-8 space-y-8 text-gray-600 dark:text-gray-400">
+                                <li class="flex gap-x-3">
+                                    <span
+                                        class="material-symbols-rounded text-cosmos-600 dark:text-cosmos-400">code_off</span>
+                                    <span><span class="font-poppinsSemiBold text-gray-900 dark:text-gray-100">Easy
+                                            to
+                                            use.</span> Simply prompt the model what data to extract,
+                                        provide a
+                                        source
+                                        and
+                                        an entity to update and LLM Vision will
+                                        handle the rest.</span>
+                                </li>
+                                <li class="flex gap-x-3">
+                                    <span
+                                        class="material-symbols-rounded text-cosmos-600 dark:text-cosmos-400">input</span>
+                                    <span><span class="font-poppinsSemiBold text-gray-900 dark:text-gray-100">Multiple
+                                            Sources.</span> Use a camera, image entity or image file as
+                                        input.
+                                        Video
+                                        input
+                                        is not yet supported.</span>
+                                </li>
+                                <li class="flex flex-col gap-x-3">
+                                    <div class="flex items-center gap-x-3">
+                                        <span
+                                            class="material-symbols-rounded text-cosmos-600 dark:text-cosmos-400">devices</span>
+                                        <span><span
+                                                class="font-poppinsSemiBold text-gray-900 dark:text-gray-100">Multiple
+                                                entity
+                                                types.</span> Currently supports these entity types:</span>
+                                    </div>
+                                    <ul class="list-disc list-inside">
+                                        <ul class="list-disc list-inside ml-10 mt-2">
+                                            <li><code class="bg-gray-100 dark:bg-gray-800 px-1 rounded">number</code>
+                                                and
+                                                <code
+                                                    class="bg-gray-100 dark:bg-gray-800 px-1 rounded">input_number</code>
+                                            </li>
+                                            <li><code class="bg-gray-100 dark:bg-gray-800 px-1 rounded">text</code>
+                                                and
+                                                <code
+                                                    class="bg-gray-100 dark:bg-gray-800 px-1 rounded">input_text</code>
+                                            </li>
+                                            <li><code class="bg-gray-100 dark:bg-gray-800 px-1 rounded">select</code>
+                                                and
+                                                <code
+                                                    class="bg-gray-100 dark:bg-gray-800 px-1 rounded">input_select</code>
+                                            </li>
+                                            <li><code
+                                                    class="bg-gray-100 dark:bg-gray-800 px-1 rounded">input_boolean</code>
+                                            </li>
+                                        </ul>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:sticky lg:top-2 lg:mx-auto lg:grid lg:w-full lg:mt-10 lg:max-w-7xl lg:gap-x-0 lg:px-8">
+                    <div class="flex flex-col justify-center h-full max-w-sm relative">
+                        <img src="./assets/data_analyzer_image.png" alt="Events" class="animate-on-scroll opacity-0 w-full rounded-3xl lg:mt-10">
+                        <div class="flex justify-center">
+                            <span class="animate-on-scroll animation-delay-200 opacity-0 material-symbols-rounded text-gray dark:text-white text-6xl mt-4 mb-4">
+                                arrow_downward_alt
+                            </span>
+                        </div>
+                        <div class="flex justify-center">
+                            <div class="animate-on-scroll animation-delay-500 opacity-0 bg-[#F4F4F5] dark:bg-[#202937] rounded-3xl p-4 max-w-xs animate-fadeInScale">
+                                <div class="flex items-center">
+                                    <div
+                                        class="bg-cosmos/70 dark:bg-cosmos/15 rounded-full w-11 h-11 flex items-center justify-center">
+                                        <span class="material-symbols-rounded text-gray dark:text-cosmos text-2xl">
+                                            directions_car
+                                        </span>
+                                    </div>
+                                    <div class="ml-4">
+                                        <p class="text-gray dark:text-white font-medium pr-2">
+                                            Cars in Driveway
+                                        </p>
+                                        <p class="text-gray dark:text-white opacity-70 font-light">
+                                            3
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Supported Providers -->
+    <section id="providers" data-section-name="Providers">
+        <div class="py-6 sm:py-12 tracking-tight">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <h2 class="text-center text-base/7 font-poppinsSemiBold text-cosmos-600 dark:text-cosmos-400">
+                    Supported Providers</h2>
+                <h2 class="text-center text-lg/8 text-gray-900 dark:text-gray-100">LLM Vision connects
+                    to
+                    these AI providers through their API</h2>
+
+                <div class="py-24 sm:py-12">
+                    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                        <div
+                            class="text-gray-800 dark:text-gray-200 mx-auto mt-10 grid max-w-lg grid-cols-6 items-center gap-x-10 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
+                            <!--Ollama-->
+                            <img class="hidden dark:block col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                                src="./assets/providers/ollama-dark.svg" alt="Ollama" width="158" height="48">
+                            <img class="block dark:hidden col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                                src="./assets/providers/ollama-light.svg" alt="Ollama" width="158" height="48">
+                            <!--Open WebUI-->
+                            <img class="hidden dark:block col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                                src="./assets/providers/openwebui-dark.png" alt="Open WebUI" width="158" height="48">
+                            <img class="block dark:hidden col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                                src="./assets/providers/openwebui-light.png" alt="Open WebUI" width="158" height="48">
+                            <!--OpenAI-->
+                            <img class="hidden dark:block col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                                src="./assets/providers/openai-dark.svg" alt="OpenAI" width="158" height="48">
+                            <img class="block dark:hidden col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                                src="./assets/providers/openai-light.svg" alt="OpenAI" width="158" height="48">
+                            <!--Anthropic-->
+                            <img class="hidden dark:block col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                                src="./assets/providers/anthropic-dark.svg" alt="Anthropic" width="158" height="48">
+                            <img class="block dark:hidden col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                                src="./assets/providers/anthropic-light.svg" alt="Anthropic" width="158" height="48">
+                            <!--Google-->
+                            <img class="hidden dark:block col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                                src="./assets/providers/google-dark.svg" alt="Google" width="158" height="48">
+                            <img class="block dark:hidden col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                                src="./assets/providers/google-light.svg" alt="Google" width="158" height="48">
+                            <!--AWS-->
+                            <img class="hidden dark:block col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                                src="./assets/providers/aws-dark.svg" alt="AWS" width="158" height="48">
+                            <img class="block dark:hidden col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                                src="./assets/providers/aws-light.svg" alt="AWS" width="158" height="48">
+                            <!--Groq-->
+                            <img class="hidden dark:block col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                                src="./assets/providers/groq-dark.svg" alt="Groq" width="158" height="48">
+                            <img class="block dark:hidden col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                                src="./assets/providers/groq-light.svg" alt="Groq" width="158" height="48">
+                        </div>
+                    </div>
+                </div>
+
+                <p class="mt-4 text-center text-gray-600 dark:text-gray-400">LLM Vision is not endorsed by
+                    or
+                    associated
+                    with any of the listed providers. All trademarks are property of their respective
+                    owners.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!--FAQ Section-->
+    <section id="faq" data-section-name="FAQ">
+        <div class="py-6 sm:py-12 tracking-tight">
+            <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+                <h2 class="text-center text-base/7 font-poppinsSemiBold text-cosmos-600 dark:text-cosmos-400">
+                    Frequently
+                    Asked
+                    Questions</h2>
+                <div class="mt-10 space-y-6">
+                    <div class="border-t border-gray-200 dark:border-gray-700 pt-6">
+                        <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">What is LLM Vision?
+                        </h3>
+                        <p class="mt-2 text-sm/6 text-gray-600 dark:text-gray-400">LLM Vision is a Home
+                            Assistant
+                            integration that can analyze images, videos, live camera feeds and frigate
+                            events
+                            using
+                            the
+                            vision capabilities of multimodal LLMs.</p>
+                    </div>
+                    <div class="border-t border-gray-200 dark:border-gray-700 pt-6">
+                        <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">How do I install
+                            LLM
+                            Vision?
+                        </h3>
+                        <p class="mt-2 text-sm/6 text-gray-600 dark:text-gray-400">You can install LLM
+                            Vision
+                            via
+                            HACS
+                            using
+                            the GitHub repository URL. For more details, visit the
+                            <a href="https://llm-vision.gitbook.io/getting-started" class="text-cosmos-500">
+                                LLM Vision
+                                documentation</a>.
+                        </p>
+                    </div>
+                    <div class="border-t border-gray-200 dark:border-gray-700 pt-6">
+                        <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Is LLM Vision free
+                            to
+                            use?
+                        </h3>
+                        </h3>
+                        <p class="mt-2 text-sm/6 text-gray-600 dark:text-gray-400">
+                            While the integration itself is free, depending on your provider you'll pay per
+                            query.
+                            For
+                            more
+                            information on pricing, visit
+                            <a href="https://llm-vision.gitbook.io/getting-started/setup/providers"
+                                class="text-cosmos-500">
+                                Provider Comparison</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="flex justify-center items-center m-4">
+            <div
+                class="mx-auto max-w-2xl p-8 lg:max-w-7xl lg:px-8 bg-gray-100 dark:bg-gray-900 text-white rounded-3xl bg-white dark:bg-gray-800 p-6 text-center relative overflow-hidden">
+                <div class="absolute inset-0 -z-10 transform-gpu overflow-hidden blur-3xl" aria-hidden="true">
+                    <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-white to-cosmos-200 opacity-40 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+                        style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+                    </div>
+                </div>
+                <h1 class="text-gray-800 dark:text-gray-100 text-2xl font-semibold mb-4">Upgrade your smart home today!
+                </h1>
+                <p class="text-gray-600 dark:text-gray-400 mb-6">Follow the simple steps in the documentation to install
+                    LLM Vision in just
+                    a
+                    few minutes.</p>
+                <div class="flex justify-center gap-4">
+                    <a href="https://llm-vision.gitbook.io/getting-started"
+                        class="sm:w-auto relative text-sm inline-flex items-center justify-center z-20 px-4 py-2 rounded-full border border-transparent bg-cosmos hover:bg-cosmos-200 after:absolute after:inset-0 after:rounded-full hover:after:shadow-[inset_0_0_2px_1px_#fff] whitespace-nowrap text-gray-900">
+                        Get Started
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Sidebar -->
+    <div id="sidebar"
+        class="hidden lg:block fixed top-1/2 transform -translate-y-1/2 right-0 h-auto w-16 bg-transparent z-50 group transition-opacity duration-300 opacity-0">
+        <div class="p-4 flex flex-col items-center space-y-2">
+            <div class="w-2 h-2 bg-gray-700 dark:bg-gray-300 rounded-full opacity-50 nav-dot transition-all duration-300"
+                data-target="#features">
+            </div>
+            <div class="w-2 h-2 bg-gray-700 dark:bg-gray-300 rounded-full opacity-50 nav-dot transition-all duration-300"
+                data-target="#overview">
+            </div>
+            <div class="w-2 h-2 bg-gray-700 dark:bg-gray-300 rounded-full opacity-50 nav-dot transition-all duration-300"
+                data-target="#events">
+            </div>
+            <div class="w-2 h-2 bg-gray-700 dark:bg-gray-300 rounded-full opacity-50 nav-dot transition-all duration-300"
+                data-target="#data-analyzer"></div>
+            <div class="w-2 h-2 bg-gray-700 dark:bg-gray-300 rounded-full opacity-50 nav-dot transition-all duration-300"
+                data-target="#providers">
+            </div>
+            <div class="w-2 h-2 bg-gray-700 dark:bg-gray-300 rounded-full opacity-50 nav-dot transition-all duration-300"
+                data-target="#faq"></div>
+        </div>
+    </div>
+
+    <!--JavaScript-->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('section');
+            const navDots = document.querySelectorAll('.nav-dot');
+            const sidebar = document.getElementById('sidebar');
+            const overviewSection = document.querySelector('#features');
+            let scrollTimeout;
+
+            function activateDot(index) {
+                navDots.forEach(dot => {
+                    dot.classList.remove('bg-black', 'dark:bg-white', 'opacity-100', 'h-6');
+                    dot.innerHTML = ''; // Clear any existing text
+                });
+                if (navDots[index]) {
+                    navDots[index].classList.add('bg-black', 'dark:bg-white', 'opacity-100', 'h-6');
+                    const label = document.createElement('span');
+                    label.className = 'absolute right-8 mr-2 top-1/2 transform -translate-y-1/2 text-black dark:text-white text-sm font-poppinsSemiBold px-2 py-1 rounded nav-dot-label';
+                    label.textContent = sections[index].getAttribute('data-section-name');
+                    navDots[index].appendChild(label);
+                    label.classList.add('show');
+                    setTimeout(() => {
+                        label.classList.remove('show');
+                        navDots[index].classList.remove('bg-black', 'dark:bg-white', 'opacity-100', 'w-4', 'h-4');
+                    }, 1000); // Show the label for 1 second
+                }
+            }
+
+            function onScroll() {
+                clearTimeout(scrollTimeout);
+                let currentIndex = 0;
+                sections.forEach((section, index) => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                        currentIndex = index;
+                    }
+                });
+
+                // Show the sidebar when the user scrolls past the overview section
+                const overviewRect = overviewSection.getBoundingClientRect();
+                if (overviewRect.top < window.innerHeight / 2) {
+                    sidebar.classList.remove('opacity-0');
+                } else {
+                    sidebar.classList.add('opacity-0');
+                }
+
+                // Ensure the last section's dot remains active when scrolling past it
+                if (window.scrollY + window.innerHeight >= document.body.scrollHeight) {
+                    currentIndex = sections.length - 1;
+                }
+
+                activateDot(currentIndex);
+
+                scrollTimeout = setTimeout(() => {
+                    navDots.forEach(dot => {
+                        dot.classList.remove('bg-white', 'opacity-100', 'w-4', 'h-4');
+                        const label = dot.querySelector('.nav-dot-label');
+                        if (label) {
+                            label.remove();
+                        }
+                    });
+                }, 1000);
+            }
+
+            function onHover() {
+                let currentIndex = 0;
+                sections.forEach((section, index) => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                        currentIndex = index;
+                    }
+                });
+
+                navDots.forEach((dot, index) => {
+                    const label = document.createElement('span');
+                    label.className = 'absolute right-full mr-2 top-1/2 transform -translate-y-1/2 bg-white dark:bg-black text-black dark:text-white text-xs px-2 py-1 rounded nav-dot-label show';
+                    label.textContent = sections[index].getAttribute('data-section-name');
+                    dot.appendChild(label);
+                });
+
+                activateDot(currentIndex);
+            }
+
+            function onMouseOut() {
+                navDots.forEach(dot => {
+                    const label = dot.querySelector('.nav-dot-label');
+                    if (label) {
+                        label.remove();
+                    }
+                });
+                onScroll(); // Reset to current section
+            }
+
+            function onClick(event) {
+                const targetId = event.currentTarget.getAttribute('data-target');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+
+            navDots.forEach(dot => {
+                dot.addEventListener('click', onClick);
+            });
+
+            window.addEventListener('scroll', onScroll);
+            sidebar.addEventListener('mouseover', onHover);
+            sidebar.addEventListener('mouseout', onMouseOut); // Reset on mouse out
+            onScroll(); // Initial call to set the active dot
+        });
+    </script>
+
+    <!--Mobile Action Bar-->
+    <div class="flex justify-center space-x-2 fixed bottom-4 left-1/2 transform -translate-x-1/2 animate-plopUp">
+        <div id="action-bar-primary" onclick="window.location.href='https://llm-vision.gitbook.io/getting-started'"
+            class="sm:block md:hidden cursor-pointer hover:scale-105 transition-transform duration-200 px-1 h-12 flex flex-grow items-center justify-center space-x-2 bg-white/50 [@supports(backdrop-filter:blur(0))]:bg-[#e8eaec]/50 dark:[@supports(backdrop-filter:blur(0))]:bg-[#313a47]/50 [@supports(backdrop-filter:blur(0))]:backdrop-blur-2xl rounded-full">
+            <p class="text-gray-900 dark:text-gray-100 pl-3 pr-3 text-sm whitespace-nowrap">Get Started</p>
+            <button class="bg-white w-10 h-10 flex items-center justify-center rounded-full shadow-lg">
+                <span class="material-symbols-rounded text-[18px] text-black dark:white">developer_guide</span>
+            </button>
+        </div>
+        <div id="action-bar-secondary" onclick="toggleMobileSwitcher()"
+            class="relative sm:block md:hidden cursor-pointer hover:scale-105 transition-transform duration-200 px-1 h-12 flex items-center justify-center bg-white/50 [@supports(backdrop-filter:blur(0))]:bg-[#e8eaec]/50 dark:[@supports(backdrop-filter:blur(0))]:bg-[#313a47]/50 [@supports(backdrop-filter:blur(0))]:backdrop-blur-2xl rounded-full">
+            <div id="action-bar-secodary-drawer" class="hidden flex space-x-2 text-sm mx-2">
+                <a href="./"
+                    class="text-gray-900 dark:text-white px-2 py-2 rounded-lg hover:text-gray-900 dark:hover:text-white transition-colors duration-200">Integration</a>
+                <a href="./card/"
+                    class="text-gray-500 dark:text-gray-300 px-2 py-2 rounded-lg hover:text-gray-900 dark:hover:text-white transition-colors duration-200">Card</a>
+                <a href="./gallery/"
+                    class="text-gray-500 dark:text-gray-300 px-2 py-2 rounded-lg hover:text-gray-900 dark:hover:text-white transition-colors duration-200">Gallery</a>
+            </div>
+            <button class="bg-white w-10 h-10 flex items-center justify-center rounded-full shadow-lg">
+                <span class="material-symbols-rounded text-[18px] text-black dark:white">menu</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function toggleMobileSwitcher() {
+            const actionBarPrimary = document.getElementById('action-bar-primary');
+            const actionBarSecondary = document.getElementById('action-bar-secondary');
+            const actionBarDrawer = document.getElementById('action-bar-secodary-drawer');
+
+            if (actionBarDrawer.classList.contains('hidden')) {
+                actionBarPrimary.classList.add('hidden');
+                actionBarDrawer.classList.remove('hidden');
+            } else {
+                actionBarPrimary.classList.remove('hidden');
+                actionBarDrawer.classList.add('hidden');
+            }
+        }
+    </script>
+
+</body>
+
+<footer class="py-8">
+    <div class="text-center mb-6">
+        <img src="./assets/icon-light.png" alt="Logo" class="block dark:hidden h-10 mx-auto mb-4">
+        <img src="./assets/icon-dark.png" alt="Logo" class="hidden dark:block h-10 mx-auto mb-4">
+        <p class="text-gray-600 dark:text-gray-300 text-lg">
+            Let Home Assistant see!
+        </p>
+    </div>
+
+    <div class="flex justify-center space-x-6 mb-10">
+        <a href="https://www.github.com/valentinfrlch/ha-llmvision"
+            class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 text-xl"
+            aria-label="GitHub">
+            <svg class="h-6 w-6" fill="white" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="currentColor" fill-rule="evenodd"
+                    d="M12 0C5.372 0 0 5.372 0 12c0 5.302 3.438 9.8 8.207 11.385.6.111.82-.26.82-.577 0-.285-.01-1.04-.015-2.04-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.085 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.304.76-1.604-2.665-.304-5.467-1.332-5.467-5.93 0-1.31.468-2.38 1.235-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.652.242 2.873.118 3.176.77.84 1.235 1.91 1.235 3.22 0 4.61-2.807 5.624-5.48 5.92.43.37.814 1.102.814 2.222 0 1.606-.015 2.898-.015 3.293 0 .32.217.694.825.576C20.565 21.796 24 17.302 24 12c0-6.628-5.372-12-12-12z" />
+            </svg>
+        </a>
+        <a href="https://llm-vision.gitbook.io/getting-started"
+            class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 text-xl"
+            aria-label="GitBook">
+            <svg width="24" height="24" viewBox="0 0 65 65" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M27.3964 34.2196C30.5255 36.0256 32.09 36.9286 33.8083 36.9301C35.5265 36.9316 37.0926 36.0314 40.2249 34.2308L60.1914 22.7535C61.0927 22.2354 61.6484 21.275 61.6484 20.2353C61.6484 19.1956 61.0927 18.2352 60.1914 17.7171L40.2177 6.23561C37.0888 4.43703 35.5243 3.53774 33.8078 3.53841C32.0912 3.53908 30.5275 4.43959 27.4 6.24061L10.2293 16.1287C10.102 16.202 10.0384 16.2386 9.97907 16.2733C4.1137 19.7069 0.489885 25.9755 0.441431 32.7718C0.440941 32.8405 0.440941 32.9139 0.440941 33.0608C0.440941 33.2075 0.440941 33.2808 0.44143 33.3494C0.489777 40.1381 4.10551 46.4008 9.96043 49.8371C10.0196 49.8719 10.0831 49.9085 10.2102 49.9819L20.9659 56.1919C27.2332 59.8105 30.3668 61.6197 33.8081 61.6209C37.2493 61.6221 40.3842 59.8149 46.6539 56.2006L58.008 49.6552C61.1474 47.8454 62.7171 46.9406 63.579 45.4488C64.4409 43.957 64.4409 42.1452 64.4409 38.5215V31.5213C64.4409 30.516 63.8965 29.5896 63.0182 29.1004C62.1683 28.6271 61.1325 28.6341 60.2891 29.1189L37.0074 42.5019C35.4454 43.3999 34.6643 43.8488 33.8072 43.8491C32.9502 43.8493 32.1689 43.4008 30.6063 42.5039L14.8487 33.4587C14.0594 33.0056 13.6647 32.779 13.3477 32.7381C12.625 32.6449 11.9301 33.0497 11.6548 33.7244C11.5341 34.0204 11.5365 34.4754 11.5414 35.3855C11.545 36.0556 11.5468 36.3906 11.6094 36.6987C11.7497 37.3888 12.1127 38.0137 12.6428 38.4772C12.8795 38.6842 13.1696 38.8517 13.7499 39.1866L30.5974 48.9103C32.1641 49.8145 32.9474 50.2666 33.8075 50.2669C34.6677 50.2671 35.4513 49.8154 37.0184 48.9121L57.6684 37.0086C58.2037 36.7 58.4714 36.5458 58.6721 36.6617C58.8727 36.7777 58.8727 37.0866 58.8727 37.7045V40.8796C58.8727 41.7856 58.8727 42.2385 58.6572 42.6115C58.4417 42.9844 58.0493 43.2107 57.2644 43.6631L40.2322 53.4811C37.0966 55.2886 35.5288 56.1923 33.8079 56.1915C32.0869 56.1908 30.5199 55.2856 27.386 53.4752L11.4509 44.2702C11.4003 44.2409 11.375 44.2263 11.3514 44.2125C8.01023 42.2601 5.94859 38.6883 5.92925 34.8185C5.92911 34.7912 5.92911 34.762 5.92911 34.7035V31.7889C5.92911 29.6526 7.06688 27.6781 8.91512 26.6068C10.5483 25.6601 12.5628 25.6582 14.1977 26.6019L27.3964 34.2196Z"
+                    fill="currentColor" />
+            </svg>
+        </a>
+        <a href="https://community.home-assistant.io/t/llm-vision-let-home-assistant-see/729241?u=valentinfrlch"
+            class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 text-xl"
+            aria-label="Home Assistant Community">
+            <svg width="24" height="24" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M240 224.762C240 233.012 233.25 239.762 225 239.762H15C6.75 239.762 0 233.012 0 224.762V134.762C0 126.512 4.77 114.993 10.61 109.153L109.39 10.3725C115.22 4.5425 124.77 4.5425 130.6 10.3725L229.39 109.162C235.22 114.992 240 126.522 240 134.772V224.772V224.762Z"
+                    fill="#F2F4F9" />
+                <path
+                    d="M229.39 109.153L130.61 10.3725C124.78 4.5425 115.23 4.5425 109.4 10.3725L10.61 109.153C4.78 114.983 0 126.512 0 134.762V224.762C0 233.012 6.75 239.762 15 239.762H107.27L66.64 199.132C64.55 199.852 62.32 200.262 60 200.262C48.7 200.262 39.5 191.062 39.5 179.762C39.5 168.462 48.7 159.262 60 159.262C71.3 159.262 80.5 168.462 80.5 179.762C80.5 182.092 80.09 184.322 79.37 186.412L111 218.042V102.162C104.2 98.8225 99.5 91.8425 99.5 83.7725C99.5 72.4725 108.7 63.2725 120 63.2725C131.3 63.2725 140.5 72.4725 140.5 83.7725C140.5 91.8425 135.8 98.8225 129 102.162V183.432L160.46 151.972C159.84 150.012 159.5 147.932 159.5 145.772C159.5 134.472 168.7 125.272 180 125.272C191.3 125.272 200.5 134.472 200.5 145.772C200.5 157.072 191.3 166.272 180 166.272C177.5 166.272 175.12 165.802 172.91 164.982L129 208.892V239.772H225C233.25 239.772 240 233.022 240 224.772V134.772C240 126.522 235.23 115.002 229.39 109.162V109.153Z"
+                    fill="#18BCF2" />
+            </svg>
+        </a>
+    </div>
+
+    <div class="grid grid-cols-3 md:grid-cols-3 gap-5 px-6 md:px-12 mt-20">
+        <div>
+            <h4 class="text-gray-800 dark:text-gray-100 font-poppinsSemiBold mb-4">Resources</h4>
+            <ul class="space-y-2 text-sm">
+                <li><a href="https://llm-vision.gitbook.io/getting-started"
+                        class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-cosmos-100">Documentation</a>
+                </li>
+                <li><a href="https://github.com/valentinfrlch/ha-llmvision/issues/new/choose"
+                        class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-cosmos-100">Report a
+                        bug</a></li>
+                <li><a href="https://github.com/valentinfrlch/ha-llmvision/issues/new/choose"
+                        class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-cosmos-100">Request
+                        a
+                        feature</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="text-gray-800 dark:text-gray-100 font-poppinsSemiBold mb-4">Support</h4>
+            <ul class="space-y-2 text-sm">
+                <li><a href="https://buymeacoffee.com/valentinfrlch"
+                        class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-cosmos-100">Buy me a
+                        coffee</a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="text-gray-800 dark:text-gray-100 font-poppinsSemiBold mb-4">Legal</h4>
+            <ul class="space-y-2 text-sm">
+                <li><a href="https://raw.githubusercontent.com/valentinfrlch/ha-llmvision/refs/heads/main/LICENSE"
+                        class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-cosmos-100">License</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="mt-8 text-center text-gray-500 dark:text-gray-400 text-sm">
+        © 2025 valentinfrlch, All rights reserved.
+    </div>
+</footer>
+
+</html>

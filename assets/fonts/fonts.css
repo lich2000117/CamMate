@@ -1,0 +1,25 @@
+/* Inter font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Apply Inter font to the entire site */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/* Custom heading styles */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+}
+
+/* Custom button text */
+button, .button {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+}
+
+/* Form input styles */
+input, textarea {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
