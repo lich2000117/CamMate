@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <rect width="600" height="400" fill="#E5E7EB"/>
+  
+  <!-- House outline -->
+  <rect x="100" y="150" width="200" height="150" rx="5" fill="#93C5FD"/>
+  <path d="M100,150 L200,80 L300,150" fill="#3B82F6"/>
+  
+  <!-- Camera -->
+  <rect x="250" y="170" width="30" height="20" rx="2" fill="#1F2937"/>
+  <rect x="280" y="175" width="10" height="10" rx="5" fill="#1F2937"/>
+  
+  <!-- CamMate Box -->
+  <rect x="150" y="230" width="80" height="30" rx="5" fill="#3B82F6"/>
+  <circle cx="170" cy="245" r="5" fill="#93C5FD"/>
+  <circle cx="190" cy="245" r="5" fill="#93C5FD"/>
+  <circle cx="210" cy="245" r="5" fill="#93C5FD"/>
+  
+  <!-- Local Processing Arrows -->
+  <path d="M270,180 C300,180 300,245 270,245" stroke="#1F2937" stroke-width="3" fill="none" stroke-dasharray="5,5"/>
+  <polygon points="270,245 275,240 275,250" fill="#1F2937"/>
+  
+  <!-- Phone -->
+  <rect x="400" y="200" width="70" height="120" rx="10" fill="#1F2937"/>
+  <rect x="410" y="220" width="50" height="80" rx="2" fill="#93C5FD"/>
+  <circle cx="435" cy="310" r="8" fill="#E5E7EB"/>
+  
+  <!-- Connection Line -->
+  <path d="M230,245 C320,245 320,260 400,260" stroke="#3B82F6" stroke-width="3" fill="none"/>
+  <polygon points="400,260 395,255 395,265" fill="#3B82F6"/>
+  
+  <!-- No Cloud Indicator -->
+  <circle cx="350" cy="120" r="40" fill="#93C5FD"/>
+  <path d="M320,120 L380,120 M350,90 L350,150" stroke="#EF4444" stroke-width="5"/>
+  
+  <!-- Text -->
+  <text x="300" y="350" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#1F2937">Local Processing - Your Data Stays Private</text>
+</svg> 

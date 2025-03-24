@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#E5E7EB"/>
+  <path d="M200,50 L50,180 L80,180 L80,320 L320,320 L320,180 L350,180 Z" fill="#3B82F6"/>
+  <rect x="140" y="220" width="120" height="100" fill="#93C5FD"/>
+  <rect x="170" y="240" width="60" height="80" fill="#E5E7EB"/>
+  <circle cx="330" cy="100" r="30" fill="#FBBF24"/>
+  <text x="200" y="350" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#1F2937">Home Security</text>
+</svg> 
