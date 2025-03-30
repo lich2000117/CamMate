@@ -1,11 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Header scroll effect
+    // Header scroll effect with enhanced styling
     const header = document.querySelector('header');
     window.addEventListener('scroll', function() {
-        if (window.scrollY > 20) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
+        if (header) {
+            if (window.scrollY > 20) {
+                header.classList.add('scrolled', 'shadow-md');
+            } else {
+                header.classList.remove('scrolled', 'shadow-md');
+            }
         }
     });
     
@@ -49,27 +51,113 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Mobile menu toggle
+    // Enhanced mobile menu toggle with improved animation and functionality
     const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
     const mobileMenu = document.getElementById('mobile-menu');
     
     if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
-            // Add animation class
-            if (!mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.add('fade-in');
+        // Toggle mobile menu function
+        function toggleMobileMenu() {
+            const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+            mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+            
+            if (isExpanded) {
+                // Close menu
+                mobileMenu.classList.add('opacity-0', 'scale-95');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                    document.body.classList.remove('overflow-hidden');
+                }, 200);
+            } else {
+                // Open menu
+                mobileMenu.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+                setTimeout(() => {
+                    mobileMenu.classList.remove('opacity-0', 'scale-95');
+                }, 10);
             }
+        }
+        
+        // Add event listeners for menu toggles
+        mobileMenuButton.addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent event bubbling
+            toggleMobileMenu();
+        });
+        
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', toggleMobileMenu);
+        }
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (mobileMenu && !mobileMenu.classList.contains('hidden') && 
+                !mobileMenu.contains(e.target) && 
+                e.target !== mobileMenuButton && 
+                !mobileMenuButton.contains(e.target)) {
+                toggleMobileMenu();
+            }
+        });
+        
+        // Handle mobile menu links
+        const mobileMenuLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', toggleMobileMenu);
         });
     }
     
+    // Dark mode toggle functionality
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const mobileDarkModeToggle = document.getElementById('mobile-dark-mode-toggle');
     
-    // Smooth scrolling for anchor links
+    function toggleDarkMode() {
+        if (document.documentElement.classList.contains('dark')) {
+            document.documentElement.classList.remove('dark');
+            localStorage.theme = 'light';
+            console.log('Switched to light mode');
+        } else {
+            document.documentElement.classList.add('dark');
+            localStorage.theme = 'dark';
+            console.log('Switched to dark mode');
+        }
+    }
+    
+    if (darkModeToggle) {
+        console.log('Dark mode toggle found');
+        darkModeToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleDarkMode();
+        });
+    }
+    
+    if (mobileDarkModeToggle) {
+        console.log('Mobile dark mode toggle found');
+        mobileDarkModeToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleDarkMode();
+        });
+    }
+    
+    // Initialize dark mode based on saved preference or system preference
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+        console.log('Dark mode initialized');
+    } else {
+        document.documentElement.classList.remove('dark');
+        console.log('Light mode initialized');
+    }
+    
+    // Enhanced smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
             
-            const target = document.querySelector(this.getAttribute('href'));
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return; // Skip empty anchors
+            
+            const target = document.querySelector(targetId);
             
             if (target) {
                 // Close mobile menu if open
@@ -77,11 +165,45 @@ document.addEventListener('DOMContentLoaded', function() {
                     mobileMenu.classList.add('hidden');
                 }
                 
-                // Scroll to target
+                // Smooth scroll to target with improved offset for fixed header
                 window.scrollTo({
-                    top: target.offsetTop - 100, // Offset for fixed header
+                    top: target.offsetTop - (header ? header.offsetHeight + 20 : 100),
                     behavior: 'smooth'
                 });
+                
+                // Update URL without reload
+                history.pushState(null, null, targetId);
+            }
+        });
+    });
+    
+    // Fix for links with page references (e.g., index.html#section)
+    document.querySelectorAll('a[href*=".html#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            const currentPage = window.location.pathname.split('/').pop();
+            
+            // If link points to current page with hash, handle it like an anchor link
+            if (href.startsWith(currentPage + '#')) {
+                e.preventDefault();
+                const targetId = '#' + href.split('#')[1];
+                const target = document.querySelector(targetId);
+                
+                if (target) {
+                    // Close mobile menu if open
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                    
+                    // Smooth scroll to target
+                    window.scrollTo({
+                        top: target.offsetTop - (header ? header.offsetHeight + 20 : 100),
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update URL without reload
+                    history.pushState(null, null, targetId);
+                }
             }
         });
     });
@@ -126,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Trigger once on page load
     setTimeout(animateOnScroll, 100);
     
-    // Back to top button
+    // Create back to top button with improved styling
     const createBackToTopButton = function() {
         // Create the button if it doesn't exist
         if (!document.querySelector('.back-to-top')) {

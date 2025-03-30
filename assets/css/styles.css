@@ -95,6 +95,7 @@ section {
     position: relative;
     z-index: 1;
     isolation: isolate;
+    pointer-events: auto; /* Ensure clicks work properly */
 }
 
 section::before {
@@ -106,6 +107,12 @@ section::before {
     height: 100%;
     background-color: inherit;
     z-index: -1;
+}
+
+section > div {
+    position: relative;
+    z-index: 1;
+    pointer-events: auto;
 }
 
 .bg-pattern {
@@ -128,7 +135,7 @@ section::before {
         radial-gradient(circle at 80% 70%, rgba(217, 119, 6, 0.15) 0%, transparent 6%);
     background-size: 120% 120%;
     background-position: 0 0;
-    pointer-events: none;
+    pointer-events: none; /* Ensure decorative elements don't capture clicks */
 }
 
 .dark .bg-pattern::before {
@@ -174,7 +181,7 @@ section::before {
         rgba(245, 158, 11, 0.02) 100%);
     z-index: -1;
     animation: shimmer 60s infinite linear;
-    pointer-events: none;
+    pointer-events: none; /* Ensure decorative elements don't capture clicks */
 }
 
 .dark .animated-gradient::before {
@@ -480,18 +487,24 @@ section::before {
 .nav-link {
     position: relative;
     padding: 0.5rem 0;
+    font-weight: 500;
+    transition: all 0.2s ease;
 }
+
 .nav-link::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
     width: 0;
     height: 2px;
-    background: #F59E0B;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(to right, #F59E0B, #D97706);
     transition: width 0.3s ease;
+    border-radius: 2px;
 }
-.nav-link:hover::after {
+
+.nav-link:hover::after,
+.nav-link.active::after {
     width: 100%;
 }
 
@@ -517,11 +530,7 @@ section::before {
 
 /* Fancy Divider */
 .fancy-divider {
-    height: 4px;
-    width: 100%;
-    background: linear-gradient(to right, #F59E0B, #D97706, #FBBF24, #F59E0B);
-    background-size: 200% 100%;
-    animation: shimmer 2s infinite;
+    display: none;
 }
 
 /* Orbit Animation for Icons */
@@ -604,17 +613,44 @@ section::before {
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Header scroll effect */
+/* Header Styles - Enhanced */
 header {
     transition: all 0.3s ease;
+    position: relative;
+    z-index: 9999; /* Highest z-index value to ensure it's above everything */
 }
+
+/* Main content z-index fix */
+main {
+    position: relative;
+    z-index: 1; /* Lower than header */
+}
+
+header .absolute {
+    pointer-events: none; /* Make backdrop non-interactive */
+}
+
+header nav {
+    pointer-events: auto; /* Ensure nav elements are clickable */
+    position: relative;
+    z-index: 1;
+}
+
+header a, 
+header button {
+    position: relative; /* Ensure links have their own stacking context */
+    z-index: 2; /* Higher than the backdrop */
+    pointer-events: auto !important; /* Force links to be clickable */
+}
+
 header.scrolled .absolute {
-    background-color: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    @apply bg-white/90 dark:bg-gray-900/90 shadow-lg;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(229, 231, 235, 0.2);
 }
+
 .dark header.scrolled .absolute {
-    background-color: rgba(17, 24, 39, 0.98);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Back to top button */
