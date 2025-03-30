@@ -1,5 +1,29 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Header scroll effect with enhanced styling
+    // Ensure amber colors are properly applied
+    function fixAmberColors() {
+        // Force amber gradient colors to be properly applied
+        const amberElements = document.querySelectorAll('[class*="amber"]');
+        amberElements.forEach(el => {
+            // Trigger a reflow
+            el.classList.add('amber-color-fix');
+            setTimeout(() => {
+                el.classList.remove('amber-color-fix');
+            }, 10);
+        });
+        
+        // Fix logo gradient specifically
+        const logoGradient = document.querySelector('.text-gradient');
+        if (logoGradient) {
+            logoGradient.style.setProperty('--tw-gradient-from', '#f59e0b', 'important');
+            logoGradient.style.setProperty('--tw-gradient-to', '#d97706', 'important');
+        }
+    }
+    
+    // Apply color fixes
+    fixAmberColors();
+    setTimeout(fixAmberColors, 500); // Run again after a delay to catch any dynamic content
+    
+    // Header scroll effect
     const header = document.querySelector('header');
     window.addEventListener('scroll', function() {
         if (header) {
@@ -10,6 +34,167 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+    
+    // Simple Mobile Menu Implementation
+    function setupMobileMenu() {
+        const menuButton = document.getElementById('mobile-menu-button');
+        const closeButton = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        
+        if (!menuButton || !closeButton || !mobileMenu || !overlay) {
+            console.warn('Mobile menu elements not found');
+            return;
+        }
+        
+        // Open menu function
+        function openMenu() {
+            // Show overlay
+            overlay.classList.remove('hidden');
+            
+            // Show menu (remove the transform that pushes it off-screen)
+            mobileMenu.classList.add('translate-x-0');
+            mobileMenu.classList.remove('translate-x-full');
+            
+            // Prevent body scrolling
+            document.body.style.overflow = 'hidden';
+            
+            // Update ARIA attributes
+            menuButton.setAttribute('aria-expanded', 'true');
+        }
+        
+        // Close menu function
+        function closeMenu() {
+            // Hide menu (add the transform that pushes it off-screen)
+            mobileMenu.classList.remove('translate-x-0');
+            mobileMenu.classList.add('translate-x-full');
+            
+            // Wait for animation to finish before hiding overlay
+            setTimeout(() => {
+                overlay.classList.add('hidden');
+                
+                // Restore body scrolling
+                document.body.style.overflow = '';
+                
+                // Update ARIA attributes
+                menuButton.setAttribute('aria-expanded', 'false');
+            }, 300); // Match the transition duration
+        }
+        
+        // Toggle menu
+        menuButton.addEventListener('click', openMenu);
+        
+        // Close menu when clicking close button
+        closeButton.addEventListener('click', closeMenu);
+        
+        // Close menu when clicking overlay
+        overlay.addEventListener('click', closeMenu);
+        
+        // Close menu when pressing Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !mobileMenu.classList.contains('translate-x-full')) {
+                closeMenu();
+            }
+        });
+        
+        // Handle menu link clicks
+        const menuLinks = mobileMenu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                // If link goes to another page, let it navigate naturally
+                const href = this.getAttribute('href');
+                if (!href.includes('#') || (href.includes('.html') && !href.includes(window.location.pathname.split('/').pop()))) {
+                    return;
+                }
+                
+                // For same-page links, close the menu after clicking
+                setTimeout(closeMenu, 100);
+            });
+        });
+    }
+    
+    // Setup mobile menu on page load
+    setupMobileMenu();
+    
+    // Also setup after header is loaded via includes (if applicable)
+    document.addEventListener('header-loaded', function() {
+        setTimeout(setupMobileMenu, 100);
+        setTimeout(fixAmberColors, 200); // Fix colors after header is loaded
+    });
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return; // Skip empty anchors
+            
+            const target = document.querySelector(targetId);
+            if (target) {
+                e.preventDefault();
+                const headerHeight = header ? header.offsetHeight : 0;
+                const offsetTop = target.getBoundingClientRect().top + window.scrollY - headerHeight - 20;
+                
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+                
+                // Update URL without reloading
+                history.pushState(null, null, targetId);
+            }
+        });
+    });
+    
+    // Fix for links with page references (e.g., index.html#section)
+    document.querySelectorAll('a[href*=".html#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            
+            // If link points to current page with hash, handle it like an anchor link
+            if (href.startsWith(currentPage + '#')) {
+                e.preventDefault();
+                const targetId = '#' + href.split('#')[1];
+                const target = document.querySelector(targetId);
+                
+                if (target) {
+                    const headerHeight = header ? header.offsetHeight : 0;
+                    const offsetTop = target.getBoundingClientRect().top + window.scrollY - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update URL without reloading
+                    history.pushState(null, null, targetId);
+                }
+            }
+        });
+    });
+    
+    // Handle initial hash in URL (for when page loads with a hash)
+    function handleInitialHash() {
+        if (location.hash) {
+            const targetId = location.hash;
+            const target = document.querySelector(targetId);
+            
+            if (target) {
+                setTimeout(() => {
+                    const headerHeight = header ? header.offsetHeight : 0;
+                    const offsetTop = target.getBoundingClientRect().top + window.scrollY - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }, 500);
+            }
+        }
+    }
+    
+    // Call handleInitialHash after DOM is loaded
+    setTimeout(handleInitialHash, 1000);
     
     // Form submission handling
     const contactForm = document.getElementById('contact-form');
@@ -51,163 +236,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Enhanced mobile menu toggle with improved animation and functionality
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenuClose = document.getElementById('mobile-menu-close');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    if (mobileMenuButton && mobileMenu) {
-        // Toggle mobile menu function
-        function toggleMobileMenu() {
-            const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-            mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
-            
-            if (isExpanded) {
-                // Close menu
-                mobileMenu.classList.add('opacity-0', 'scale-95');
-                setTimeout(() => {
-                    mobileMenu.classList.add('hidden');
-                    document.body.classList.remove('overflow-hidden');
-                }, 200);
-            } else {
-                // Open menu
-                mobileMenu.classList.remove('hidden');
-                document.body.classList.add('overflow-hidden');
-                setTimeout(() => {
-                    mobileMenu.classList.remove('opacity-0', 'scale-95');
-                }, 10);
-            }
-        }
-        
-        // Add event listeners for menu toggles
-        mobileMenuButton.addEventListener('click', function(e) {
-            e.stopPropagation(); // Prevent event bubbling
-            toggleMobileMenu();
-        });
-        
-        if (mobileMenuClose) {
-            mobileMenuClose.addEventListener('click', toggleMobileMenu);
-        }
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (mobileMenu && !mobileMenu.classList.contains('hidden') && 
-                !mobileMenu.contains(e.target) && 
-                e.target !== mobileMenuButton && 
-                !mobileMenuButton.contains(e.target)) {
-                toggleMobileMenu();
-            }
-        });
-        
-        // Handle mobile menu links
-        const mobileMenuLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
-        mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', toggleMobileMenu);
-        });
-    }
-    
-    // Dark mode toggle functionality
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
-    const mobileDarkModeToggle = document.getElementById('mobile-dark-mode-toggle');
-    
-    function toggleDarkMode() {
-        if (document.documentElement.classList.contains('dark')) {
-            document.documentElement.classList.remove('dark');
-            localStorage.theme = 'light';
-            console.log('Switched to light mode');
-        } else {
-            document.documentElement.classList.add('dark');
-            localStorage.theme = 'dark';
-            console.log('Switched to dark mode');
-        }
-    }
-    
-    if (darkModeToggle) {
-        console.log('Dark mode toggle found');
-        darkModeToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            toggleDarkMode();
-        });
-    }
-    
-    if (mobileDarkModeToggle) {
-        console.log('Mobile dark mode toggle found');
-        mobileDarkModeToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            toggleDarkMode();
-        });
-    }
-    
-    // Initialize dark mode based on saved preference or system preference
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-        console.log('Dark mode initialized');
-    } else {
-        document.documentElement.classList.remove('dark');
-        console.log('Light mode initialized');
-    }
-    
-    // Enhanced smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return; // Skip empty anchors
-            
-            const target = document.querySelector(targetId);
-            
-            if (target) {
-                // Close mobile menu if open
-                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
-                
-                // Smooth scroll to target with improved offset for fixed header
-                window.scrollTo({
-                    top: target.offsetTop - (header ? header.offsetHeight + 20 : 100),
-                    behavior: 'smooth'
-                });
-                
-                // Update URL without reload
-                history.pushState(null, null, targetId);
-            }
-        });
-    });
-    
-    // Fix for links with page references (e.g., index.html#section)
-    document.querySelectorAll('a[href*=".html#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            const currentPage = window.location.pathname.split('/').pop();
-            
-            // If link points to current page with hash, handle it like an anchor link
-            if (href.startsWith(currentPage + '#')) {
-                e.preventDefault();
-                const targetId = '#' + href.split('#')[1];
-                const target = document.querySelector(targetId);
-                
-                if (target) {
-                    // Close mobile menu if open
-                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                    
-                    // Smooth scroll to target
-                    window.scrollTo({
-                        top: target.offsetTop - (header ? header.offsetHeight + 20 : 100),
-                        behavior: 'smooth'
-                    });
-                    
-                    // Update URL without reload
-                    history.pushState(null, null, targetId);
-                }
-            }
-        });
-    });
-    
     // Animation on scroll
     const animateOnScroll = function() {
         const elements = document.querySelectorAll('.fade-in, .slide-in');
@@ -248,7 +276,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Trigger once on page load
     setTimeout(animateOnScroll, 100);
     
-    // Create back to top button with improved styling
+    // Create back to top button
     const createBackToTopButton = function() {
         // Create the button if it doesn't exist
         if (!document.querySelector('.back-to-top')) {
@@ -282,89 +310,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize back to top button
     createBackToTopButton();
-    
-    // Search overlay functionality
-    const searchButton = document.getElementById('search-button');
-    if (searchButton) {
-        searchButton.addEventListener('click', function() {
-            // Create search overlay if it doesn't exist
-            let searchOverlay = document.getElementById('search-overlay');
-            if (!searchOverlay) {
-                searchOverlay = document.createElement('div');
-                searchOverlay.id = 'search-overlay';
-                searchOverlay.className = 'fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-6 fade-in';
-                
-                const searchContent = `
-                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6 w-full max-w-2xl">
-                        <div class="flex items-center justify-between mb-6">
-                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Search</h3>
-                            <button id="close-search" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="relative">
-                            <input type="text" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Search for features, cameras...">
-                            <button class="absolute right-3 top-3 text-gray-400 dark:text-gray-500">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="mt-6">
-                            <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3">Quick Links</h4>
-                            <div class="grid grid-cols-2 gap-2">
-                                <a href="#features" class="search-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">Features</a>
-                                <a href="#how-it-works" class="search-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">How It Works</a>
-                                <a href="#use-cases" class="search-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">Use Cases</a>
-                                <a href="#extended-capabilities" class="search-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">Extended Capabilities</a>
-                                <a href="#event-management" class="search-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">Event Management</a>
-                                <a href="#contact" class="search-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">Contact Us</a>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                
-                searchOverlay.innerHTML = searchContent;
-                document.body.appendChild(searchOverlay);
-                
-                // Add event listeners to close overlay
-                const closeSearch = document.getElementById('close-search');
-                const searchLinks = document.querySelectorAll('.search-link');
-                
-                closeSearch.addEventListener('click', function() {
-                    searchOverlay.remove();
-                });
-                
-                searchOverlay.addEventListener('click', function(e) {
-                    if (e.target === searchOverlay) {
-                        searchOverlay.remove();
-                    }
-                });
-                
-                // Handle quick links
-                searchLinks.forEach(link => {
-                    link.addEventListener('click', function() {
-                        searchOverlay.remove();
-                    });
-                });
-            }
-        });
-    }
-    
-    // Background parallax effect
-    const hero = document.querySelector('.hero-section');
-    if (hero) {
-        window.addEventListener('scroll', function() {
-            const scrollPosition = window.scrollY;
-            const parallaxBackground = hero.querySelector('.bg-pattern');
-            
-            if (parallaxBackground) {
-                parallaxBackground.style.transform = `translateY(${scrollPosition * 0.15}px)`;
-            }
-        });
-    }
     
     // Counter animation
     const animateCounter = function(counter, target) {

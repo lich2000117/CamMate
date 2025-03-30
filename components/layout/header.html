@@ -1,92 +1,299 @@
 <!-- Header Component -->
-<header class="fixed w-full z-[9999]">
-  <div class="absolute inset-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-sm transition-all duration-300"></div>
-  <nav class="container mx-auto px-6 py-4 relative">
+<head>
+  <!-- Include amber-fix.css for consistent amber colors -->
+  <link rel="stylesheet" href="css/amber-fix.css">
+</head>
+
+<header class="fixed top-0 left-0 w-full z-50 bg-white dark:bg-gray-900 shadow-sm transition-all duration-300">
+  <nav class="container mx-auto px-6 py-4">
     <div class="flex items-center justify-between">
-      <a href="index.html" class="text-2xl font-bold text-gray-800 dark:text-white flex items-center group">
+      <!-- Logo / Brand -->
+      <a href="index.html" class="flex items-center group text-2xl font-bold text-gray-800 dark:text-white">
         <div class="mr-3 relative">
-          <div class="w-12 h-12 bg-gradient-to-br from-amber-100 to-amber-200 dark:from-amber-600/20 dark:to-amber-700/30 rounded-xl flex items-center justify-center shadow-lg transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
-            <svg class="w-7 h-7 text-amber-500 dark:text-amber-400 transform transition-all duration-300 group-hover:text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+          <div
+            class="w-12 h-12 bg-gradient-to-br from-amber-100 to-amber-200 dark:from-amber-600/20 dark:to-amber-700/30 rounded-xl flex items-center justify-center shadow-lg transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
+          >
+            <svg
+              class="w-7 h-7 text-amber-500 dark:text-amber-400 transform transition-all duration-300 group-hover:text-amber-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+              />
             </svg>
           </div>
-          <div class="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white dark:border-gray-900 animate-pulse"></div>
+          <div
+            class="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white dark:border-gray-900 animate-pulse"
+          ></div>
         </div>
-        <span class="font-bold tracking-tight">Cam<span class="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-amber-500 to-amber-600 dark:from-amber-400 dark:to-amber-500">Mate</span></span>
+        <span class="tracking-tight">
+          Cam
+          <span
+            class="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-amber-500 to-amber-600 dark:from-amber-400 dark:to-amber-500"
+            >Mate</span
+          >
+        </span>
       </a>
-      
+
+      <!-- Desktop Navigation -->
       <div class="hidden md:flex items-center space-x-8">
-        <a href="index.html#features" class="nav-link text-gray-600 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Features</a>
-        <a href="index.html#how-it-works" class="nav-link text-gray-600 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">How it Works</a>
-        <a href="index.html#use-cases" class="nav-link text-gray-600 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Use Cases</a>
-        <a href="cameras.html" class="nav-link text-gray-600 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Supported Cameras</a>
+        <a
+          href="index.html#features"
+          class="nav-link text-gray-600 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-400 transition-colors"
+          >Features</a
+        >
+        <a
+          href="index.html#how-it-works"
+          class="nav-link text-gray-600 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-400 transition-colors"
+          >How it Works</a
+        >
+        <a
+          href="index.html#use-cases"
+          class="nav-link text-gray-600 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-400 transition-colors"
+          >Use Cases</a
+        >
+        <a
+          href="cameras.html"
+          class="nav-link text-gray-600 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-400 transition-colors"
+          >Supported Cameras</a
+        >
+
+        <!-- Primary Call-to-Action -->
         <div class="flex items-center space-x-4">
-          
-          <a href="index.html#contact" class="btn-primary flex items-center px-4 py-2 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white transform hover:-translate-y-0.5 transition-all duration-200 shadow-md hover:shadow-lg">
+          <a
+            href="index.html#contact"
+            class="btn-primary flex items-center px-4 py-2 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white transform hover:-translate-y-0.5 transition-all duration-200 shadow-md hover:shadow-lg"
+          >
             <span>Contact Us</span>
             <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              />
             </svg>
           </a>
         </div>
       </div>
-      
-      <div class="md:hidden relative">
-        <!-- Fixed mobile menu button with higher z-index and larger touch target -->
-        <button id="mobile-menu-button" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" class="z-[110] p-3 relative text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white rounded-lg bg-gray-100 dark:bg-gray-800 shadow-sm hover:shadow focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-50">
-          <span class="absolute inset-0"></span>
+
+      <!-- Mobile Navigation: Menu Button -->
+      <div class="md:hidden">
+        <button
+          type="button"
+          id="mobile-menu-button"
+          aria-label="Menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          class="p-3 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white rounded-lg bg-gray-100 dark:bg-gray-800 shadow-sm hover:shadow focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-50"
+        >
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path id="mobile-menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            <path
+              id="mobile-menu-icon"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
           </svg>
         </button>
-        
-        <!-- Improved mobile menu with animation -->
-        <div id="mobile-menu" class="hidden fixed inset-0 z-[105] bg-white/95 dark:bg-gray-900/98 backdrop-blur-lg transform transition-all duration-300 opacity-100 scale-100">
-          <div class="h-full flex flex-col overflow-y-auto">
-            <div class="flex justify-between items-center p-6 border-b border-gray-200 dark:border-gray-700">
-              <a href="index.html" class="text-2xl font-bold text-gray-800 dark:text-white flex items-center">
-                <div class="mr-3 relative">
-                  <div class="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center shadow-lg">
-                    <svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
-                    </svg>
-                  </div>
-                  <div class="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white dark:border-gray-900 animate-pulse"></div>
-                </div>
-                <span class="font-bold tracking-tight">Cam<span class="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-amber-500 to-amber-600 dark:from-amber-400 dark:to-amber-500">Mate</span></span>
-              </a>
-              <button id="mobile-menu-close" aria-label="Close menu" class="p-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                </svg>
-              </button>
-            </div>
-            
-            <div class="p-6 space-y-6 flex-1">
-              <a href="index.html#features" class="block text-lg font-medium text-gray-900 dark:text-white hover:text-amber-500 dark:hover:text-amber-400 py-3 border-b border-gray-200 dark:border-gray-700 transition-colors">Features</a>
-              <a href="index.html#how-it-works" class="block text-lg font-medium text-gray-900 dark:text-white hover:text-amber-500 dark:hover:text-amber-400 py-3 border-b border-gray-200 dark:border-gray-700 transition-colors">How it Works</a>
-              <a href="index.html#use-cases" class="block text-lg font-medium text-gray-900 dark:text-white hover:text-amber-500 dark:hover:text-amber-400 py-3 border-b border-gray-200 dark:border-gray-700 transition-colors">Use Cases</a>
-              <a href="cameras.html" class="block text-lg font-medium text-gray-900 dark:text-white hover:text-amber-500 dark:hover:text-amber-400 py-3 border-b border-gray-200 dark:border-gray-700 transition-colors">Supported Cameras</a>
-            </div>
-            
-            <div class="p-6 border-t border-gray-200 dark:border-gray-700">
-              <a href="index.html#contact" class="block w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white text-center font-medium px-6 py-3 rounded-lg hover:from-amber-600 hover:to-amber-700 transition-all duration-200 shadow-md hover:shadow-lg mb-4">
-                Contact Us
-              </a>
-              <button id="mobile-dark-mode-toggle" class="w-full flex items-center justify-center space-x-2 text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 px-6 py-3 rounded-lg transition-colors">
-                <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
-                </svg>
-                <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
-                </svg>
-                <span class="dark:hidden">Switch to Dark Mode</span>
-                <span class="hidden dark:inline">Switch to Light Mode</span>
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </nav>
-</header> 
+</header>
+
+<!-- Mobile menu overlay (backdrop) -->
+<div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden transition-opacity duration-300 ease-in-out"></div>
+
+<!-- Mobile menu -->
+<div id="mobile-menu" class="fixed top-0 right-0 bottom-0 w-3/4 max-w-xs bg-white dark:bg-gray-900 z-50 transform translate-x-full transition-transform duration-300 ease-in-out shadow-lg">
+  <div class="flex flex-col h-full">
+    <!-- Menu Header -->
+    <div class="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
+      <h3 class="text-lg font-medium text-gray-700 dark:text-gray-300">Menu</h3>
+      <button id="mobile-menu-close" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Menu Links -->
+    <nav class="flex-grow p-4 overflow-y-auto">
+      <ul class="space-y-2">
+        <li>
+          <a href="index.html#features" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-amber-500 dark:hover:text-amber-400">
+            Features
+          </a>
+        </li>
+        <li>
+          <a href="index.html#how-it-works" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-amber-500 dark:hover:text-amber-400">
+            How it Works
+          </a>
+        </li>
+        <li>
+          <a href="index.html#use-cases" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-amber-500 dark:hover:text-amber-400">
+            Use Cases
+          </a>
+        </li>
+        <li>
+          <a href="cameras.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-amber-500 dark:hover:text-amber-400">
+            Supported Cameras
+          </a>
+        </li>
+      </ul>
+    </nav>
+    
+    <!-- Menu Footer -->
+    <div class="p-4 border-t border-gray-200 dark:border-gray-700">
+      <a href="index.html#contact" class="block w-full py-3 px-4 text-center rounded-md text-white bg-amber-500 hover:bg-amber-600 font-medium shadow-sm">
+        Contact Us
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Mobile menu styles */
+  #mobile-menu {
+    background-color: #ffffff;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .dark #mobile-menu {
+    background-color: #111827;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Mobile menu transition helpers */
+  #mobile-menu-overlay {
+    opacity: 0;
+  }
+  
+  #mobile-menu-overlay:not(.hidden) {
+    opacity: 1;
+  }
+  
+  /* Custom transitions */
+  .translate-x-0 {
+    transform: translateX(0) !important;
+  }
+  
+  .translate-x-full {
+    transform: translateX(100%) !important;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    #mobile-menu,
+    #mobile-menu-overlay {
+      transition: none;
+    }
+  }
+  
+  /* Ensure amber colors display properly */
+  .text-amber-400 {
+    color: #fbbf24 !important;
+  }
+  
+  .text-amber-500 {
+    color: #f59e0b !important;
+  }
+  
+  .text-amber-600 {
+    color: #d97706 !important;
+  }
+  
+  .bg-amber-500 {
+    background-color: #f59e0b !important;
+  }
+  
+  .bg-amber-600 {
+    background-color: #d97706 !important;
+  }
+  
+  .bg-amber-700 {
+    background-color: #b45309 !important;
+  }
+  
+  .hover\:text-amber-400:hover {
+    color: #fbbf24 !important;
+  }
+  
+  .hover\:text-amber-500:hover {
+    color: #f59e0b !important;
+  }
+  
+  .hover\:text-amber-600:hover {
+    color: #d97706 !important;
+  }
+  
+  .hover\:bg-amber-500:hover {
+    background-color: #f59e0b !important;
+  }
+  
+  .hover\:bg-amber-600:hover {
+    background-color: #d97706 !important;
+  }
+  
+  .hover\:bg-amber-700:hover {
+    background-color: #b45309 !important;
+  }
+  
+  .dark .dark\:text-amber-400 {
+    color: #fbbf24 !important;
+  }
+  
+  .dark .dark\:text-amber-500 {
+    color: #f59e0b !important;
+  }
+  
+  .dark .dark\:hover\:text-amber-400:hover {
+    color: #fbbf24 !important;
+  }
+  
+  /* Fix for amber gradients */
+  .from-amber-500 {
+    --tw-gradient-from: #f59e0b !important;
+  }
+  
+  .to-amber-600 {
+    --tw-gradient-to: #d97706 !important;
+  }
+  
+  .hover\:from-amber-600:hover {
+    --tw-gradient-from: #d97706 !important;
+  }
+  
+  .hover\:to-amber-700:hover {
+    --tw-gradient-to: #b45309 !important;
+  }
+  
+  .dark .dark\:from-amber-400 {
+    --tw-gradient-from: #fbbf24 !important;
+  }
+  
+  .dark .dark\:to-amber-500 {
+    --tw-gradient-to: #f59e0b !important;
+  }
+</style>
+
+<!-- Add a script to ensure Tailwind's amber colors are fully loaded -->
+<script>
+  // Force Tailwind amber colors to be available
+  document.addEventListener('DOMContentLoaded', function() {
+    // Add a class to body to trigger amber color styles
+    document.body.classList.add('tailwind-amber-fix');
+    
+    // Check if any amber color styles need fixing
+    const amberElements = document.querySelectorAll('[class*="amber"]');
+    amberElements.forEach(el => {
+      // Force a reflow of the element to apply styles
+      el.style.display = el.style.display;
+    });
+  });
+</script>

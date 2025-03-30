@@ -689,3 +689,32 @@ header.scrolled .absolute {
 .dark .back-to-top:hover {
     background-color: rgba(146, 64, 14, 1);
 }
+
+/* Mobile menu button fixes */
+#mobile-menu-button {
+    cursor: pointer;
+    position: relative;
+    z-index: 9999;
+    pointer-events: auto !important;
+}
+
+#mobile-menu-button svg,
+#mobile-menu-close svg {
+    pointer-events: none; /* Ensures clicks register on the button, not the SVG */
+}
+
+#mobile-menu {
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+}
+
+#mobile-menu.hidden {
+    display: none;
+}
+
+#mobile-menu:not(.hidden) {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}

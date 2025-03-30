@@ -63,6 +63,16 @@
 
     <!-- Load scripts in correct order -->
     <script src="components/common/server-include.js"></script>
+    <script>
+      // This helps ensure mobile menu hooks are properly set after all includes are loaded
+      document.addEventListener('include-loaded', function(event) {
+        if (event.detail && event.detail.file && event.detail.file.includes('header.html')) {
+          console.log('Header included, initializing mobile menu');
+          // Create a custom event to let cammate.js know the header is loaded
+          document.dispatchEvent(new CustomEvent('header-loaded'));
+        }
+      });
+    </script>
     <script src="cammate.js"></script>
 </body>
 </html> 
