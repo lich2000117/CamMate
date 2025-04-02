@@ -22,7 +22,7 @@
                             Your Intelligent AI Camera Assistant
                         </h1>
                         <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
-                            Local AI processing and advanced object detection, no cloud storage, your data is yours. Offering maximum flexibility to integrate with your existing security system.
+                            Experience local AI processing and powerful object detection—no cloud storage required. Your data stays with you, and Cam Mate easily integrates with your existing security setup.
                         </p>
                         <div class="flex flex-wrap gap-4">
                             <a href="#contact" class="btn-primary flex items-center">
@@ -45,13 +45,16 @@
             </div>
         </section>
 
-        <!-- Include sections -->
+        <!-- Include existing sections -->
         <div data-include="components/sections/index/event-timeline.html"></div>
-        <div data-include="components/sections/index/use-cases.html"></div>
-        <div data-include="components/sections/index/how-it-works.html"></div>
-        <div data-include="components/sections/index/features.html"></div>
         <div data-include="components/sections/index/language-support.html"></div>
+        <div data-include="components/sections/index/features.html"></div>
+        <div data-include="components/sections/index/use-cases.html"></div>
+        <div data-include="components/sections/index/easy-camera-setup.html"></div>
+        <div data-include="components/sections/index/how-it-works.html"></div>
         <div data-include="components/sections/index/hardware.html"></div>
+
+        <!-- Continue with other sections -->
         <div data-include="components/sections/index/voice.html"></div>
         <div data-include="components/sections/index/testimonials.html"></div>
         <div data-include="components/sections/index/our-story.html"></div>
@@ -64,7 +67,7 @@
     <!-- Load scripts in correct order -->
     <script src="components/common/server-include.js"></script>
     <script>
-      // This helps ensure mobile menu hooks are properly set after all includes are loaded
+      // Ensure mobile menu hooks are properly set after all includes are loaded
       document.addEventListener('include-loaded', function(event) {
         if (event.detail && event.detail.file && event.detail.file.includes('header.html')) {
           console.log('Header included, initializing mobile menu');
@@ -75,4 +78,4 @@
     </script>
     <script src="cammate.js"></script>
 </body>
-</html> 
+</html>

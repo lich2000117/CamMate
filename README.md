@@ -5,7 +5,6 @@ This is the official website for Cam Mate, an intelligent AI camera assistant th
 ## Features
 
 - Modern, responsive design
-- Dark mode support
 - Contact form integration
 - Built with TailwindCSS
 - GitHub Pages ready
